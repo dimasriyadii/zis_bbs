@@ -161,15 +161,12 @@ include "../include/session.php";
 					</div>
 					<div class="modal-body">
 						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>Tanggal</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-user"></i>
-										</div>
+								
 										<input name="tanggal" type="text" class="form-control" placeholder="YYYY/MM/DD"/>
-									</div>
-							</div>
+								
+							</div> -->
 
 							<div class="form-group">
 								<label>Nama</label>

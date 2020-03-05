@@ -1,10 +1,9 @@
 <?php
 include "../include/connect.php";
-// include "../include/session.php";
 
 $id_zakatf		= $_POST["id_zakatf"];
 $tanggal	 	= $_POST["tanggal"];
-$nama		= $_POST["nama"];
+$nama			= $_POST["nama"];
 $alamat			= $_POST["alamat"];
 $uang			= $_POST["uang"];
 $beras			= $_POST["beras"];

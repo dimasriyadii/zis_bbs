@@ -28,6 +28,7 @@
 									<td>$user[alamat]</td>
 									<td>$user[uang]</td>
 									<td>$user[beras]</td>
+		
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_zakatf='$user[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$user[id_zakatf]\")'>Delete</a>

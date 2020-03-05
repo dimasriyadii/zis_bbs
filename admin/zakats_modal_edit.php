@@ -50,12 +50,39 @@ while($user = mysqli_fetch_array($queryuser)){
 									</div>
 							</div>
 							<div class="form-group">
-								<label>Password</label>
+								<label>Nama</label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="password" type="password" class="form-control" value=""/>
+										<input name="nama" type="text" class="form-control" value="<?php echo $user["nama"]; ?>"/>
+									</div>
+							</div>
+							<div class="form-group">
+								<label>Alamat</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-id-card"></i>
+										</div>
+										<input name="alamat" type="text" class="form-control" value="<?php echo $user["alamat"]; ?>"/>
+									</div>
+							</div>
+							<div class="form-group">
+								<label>Uang</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-id-card"></i>
+										</div>
+										<input name="uang" type="text" class="form-control" value="<?php echo $user["uang"]; ?>"/>
+									</div>
+							</div>
+							<div class="form-group">
+								<label>Beras</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-id-card"></i>
+										</div>
+										<input name="beras" type="text" class="form-control" value="<?php echo $user["beras"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -66,15 +93,15 @@ while($user = mysqli_fetch_array($queryuser)){
 										</div>
 										<select name="level" class="form-control">
 										<option value='admin'>admin</option>
-                    <option value='dokter'>dokter</option>
-                    <option value='operator'>operator</option>
+                    					<option value='dokter'>dokter</option>
+                    					<option value='operator'>operator</option>
 										</select>
 									</div>
 									</div>
 									
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
-									Add
+									Save
 								</button>
 								<button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
 									Cancel
