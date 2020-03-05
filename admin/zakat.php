@@ -1,14 +1,14 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>User | Babussalam</title>
-<!-- <meta charset="utf-8">
+<title>Zakat | Babussalam</title>
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
   <!-- jQuery 2.1.4 -->
@@ -74,7 +74,7 @@ include "../include/session.php";
             <li class="user-header">
 	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
                 <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome to ZIS Babussalam</p>
+                <p>Welcome To ZIS Babussalam</p>
              </li>
               
               <!-- Menu Footer-->
@@ -110,12 +110,11 @@ include "../include/session.php";
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen Users</center></b></h4></li>
-            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
-            <li><a href="users.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="dokter.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
-            <li><a href="pasien.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-            <li><a href="users.php"><i class="fa fa-list-ul"></i><span>Users</span></a></li>
+						<li class="header"><h4><b><center>Manajemen Dokter</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+            <li><a href="dokter.php"><i class="fa fa-medkit"></i><span>Dokter</span></a></li>
+            <li><a href="pasien.php"><i class="fa fa-users"></i><span>Pasien</span></a></li>
           </ul>
         </section>
     <!-- /.sidebar -->
@@ -125,7 +124,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Users
+            Data Dokter
           </h1>
           
         </section>
@@ -139,11 +138,10 @@ include "../include/session.php";
 
                 </div><!-- /.box-header -->
                 <div class="box-body">
-				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_users.php";
+							include "detail_dokter.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -158,43 +156,97 @@ include "../include/session.php";
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Tambah Users</h4>
+						<h4 class="modal-title">Tambah Data Dokter</h4>
 					</div>
 					<div class="modal-body">
 						<form action="users_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 							<div class="form-group">
-								<label>Username</label>
+								<label>Nomor Registrasi Dokter</label>
 									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-user"></i>
+										
+											<i class=""></i>
 										</div>
-										<input name="username" type="text" class="form-control" placeholder="username"/>
-									</div>
+										<input name="no_reg" type="text" class="form-control" placeholder=""/>
+									
 							</div>
 							<div class="form-group">
-								<label>Password</label>
+								<label>Nama Lengkap</label>
+									<div class="input-group">
+											<i class=""></i>
+										</div>
+										<input name="nama" type="text" class="form-control" placeholder=""/>
+                </div>
+                            
+                <div class="form-group">
+								<label>Alamat</label>
+									<div class="input-group">
+											<i class=""></i>
+										</div>
+										<input name="alamat" type="text" class="form-control" placeholder=""/>
+								</div>
+                          
+									
+									<!-- <div class="form-group">
+									<label>Jenis Dokter</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class=""></i>
 										</div>
-										<input name="password" type="password" class="form-control" placeholder="password"/>
-									</div>
-							</div>
-							<div class="form-group">
-								<label>Level</label>
+										<select name="spesialist" class="form-control">
+										<option value='umum'>Dokter Umum</option>
+										<option value='anak'>Spesialist Anak</option>
+										<option value='anastesi'>Spesialist Anastesi</option>
+										<option value='andrologi'>Spesialist Andrologi</option>
+										<option value='bedah'>Spesialist Bedah</option>
+										<option value='bedah_anak'>Spesialist Bedah Anak</option>
+										<option value='bedah_toraks'>Spesialist Bedah Toraks</option>
+										<option value='bedah_mulut'>Spesialist Bedah Mulut</option>
+										<option value='bedah_plastik'>Spesialist Plastik</option>
+										<option value='bedah_syaraf'>Spesialist Syaraf</option>
+										<option value='forensik'>Spesialist Forensik</option>
+										
+										<option value='jiwa'>Spesialist Jiwa dan Psikiater</option>
+										<option value='tht'>Spesialist THT</option>
+										<option value='gigi'>Spesialist Gigi</option>
+										<option value='gigi_anak'>Spesialist Gigi Anak</option>
+										<option value='kk'>Spesialist Kulit dan Kelamin</option>
+										</select> -->
+                            
+                <div class="form-group">
+								<label>Nomor Telpon</label>
 									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-flag"></i>
+											<i class=""></i>
 										</div>
-										<select name="level" class="form-control">
-										<option value='admin'>admin</option>
-                    <option value='dokter'>dokter</option>
-                    <option value='operator'>operator</option>
-										</select>
-									</div>
+										<input name="no_telpon" type="text" class="form-control" placeholder=""/>
 									</div>
 									
-									<div class="modal-footer">
+								<div class="form-group">
+								<label>Jenis Kelamin</label>
+									<div class="radio-group">
+										<div class="radio-group-addon">
+											<i class=""></i>
+										</div>
+										<div class="radio-inline">
+  									<label class="radio"><input type="radio" name="jenis_kel" value="L">Laki-Laki</label>
+										</div>
+										<div class="radio-inline">
+  									<label class="radio"><input type="radio" name="jenis_kel" value="P">Perempuan</label>
+										</div>
+									</div>
+                  </div>
+                            
+                  <label>Jenis Dokter</label>
+									<div class="input-group">
+											<i class=""></i>
+										</div>
+										<select name="spesialist" class="form-control">
+										<option value='umum'>Dokter Umum</option>
+										<option value='anak'>Spesialist Anak</option>
+										</select>
+									</div>
+							
+									
+								<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
 									Add
 								</button>
@@ -258,11 +310,89 @@ include "../include/session.php";
 				});
 			});
 		
-		
+		// Mahasiswa
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "training_modal_edit.php",
+					type: "GET",
+					data : {no_tri: m,},
+					success: function (ajaxData){
+					$("#ModalEditTraining").html(ajaxData);
+					$("#ModalEditTraining").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
 			
-		
+		// Ruangan
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "grup_modal_edit.php",
+					type: "GET",
+					data : {id_gr: m,},
+					success: function (ajaxData){
+					$("#ModalEditGrup").html(ajaxData);
+					$("#ModalEditGrup").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
 
-
+		// Matakuliah
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "matakuliah_modal_edit.php",
+					type: "GET",
+					data : {Kode_Matakuliah: m,},
+					success: function (ajaxData){
+					$("#ModalEditMatakuliah").html(ajaxData);
+					$("#ModalEditMatakuliah").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
+			
+		// Jurusan
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "jurusan_modal_edit.php",
+					type: "GET",
+					data : {Kode_Jurusan: m,},
+					success: function (ajaxData){
+					$("#ModalEditJurusan").html(ajaxData);
+					$("#ModalEditJurusan").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
+			
+		// Jenjang
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "jenjang_modal_edit.php",
+					type: "GET",
+					data : {Kode_Jenjang: m,},
+					success: function (ajaxData){
+					$("#ModalEditJenjang").html(ajaxData);
+					$("#ModalEditJenjang").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
+			
+		// Jadwal
+		$(".open_modal").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "jadwal_modal_edit.php",
+					type: "GET",
+					data : {Id_Jadwal: m,},
+					success: function (ajaxData){
+					$("#ModalEditJadwal").html(ajaxData);
+					$("#ModalEditJadwal").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
 		});
 	</script>
 	
