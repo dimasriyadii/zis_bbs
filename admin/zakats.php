@@ -65,7 +65,6 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!--<img src="../assets/foto/<?php// echo "".$_SESSION["Foto"]."" ?>" class="user-image" alt="Foto">-->
               <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
               <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
@@ -207,8 +206,6 @@ include "../include/session.php";
 										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
 									</div>
 							</div>
-
-						
 									
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
@@ -252,12 +249,8 @@ include "../include/session.php";
 
 	</div><!-- ./wrapper -->
 
-
-	
-
-	
-		<!-- Javascript Edit--> 
-		<script type="text/javascript">
+			<!-- Javascript Edit--> 
+	<script type="text/javascript">
 		$(document).ready(function () {
 		
 		// Users
@@ -274,10 +267,7 @@ include "../include/session.php";
 				});
 			});
 		
-		
-			
-		
-
+	
 
 		});
 	</script>

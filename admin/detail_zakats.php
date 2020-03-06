@@ -17,21 +17,21 @@
 						if($queryzakat == false){
 							die ("Terjadi Kesalahan : ". mysqli_error($connect));
 						}
-						while ($user = mysqli_fetch_array ($queryzakat)){
+						while ($zakat = mysqli_fetch_array ($queryzakat)){
 							$no++;
 							
 							echo "
 								<tr>
 									<td>$no</td>
-									<td>$user[tanggal]</td>
-									<td>$user[nama]</td>
-									<td>$user[alamat]</td>
-									<td>$user[uang]</td>
-									<td>$user[beras]</td>
-		
+									<td>$zakat[tanggal]</td>
+									<td>$zakat[nama]</td>
+									<td>$zakat[alamat]</td>
+									<td>$zakat[uang]</td>
+									<td>$zakat[beras]</td>
+
 									<td>
-										<a href='#' class='open_modal btn btn-primary' id_zakatf='$user[id_zakatf]'>Edit</a> 
-										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$user[id_zakatf]\")'>Delete</a>
+										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
+										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$zakat[id_zakatf]\")'>Delete</a>
 									</td>
 								</tr>";
 						}

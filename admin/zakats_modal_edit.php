@@ -4,11 +4,11 @@ include "../include/connect.php";
 
 $id_zakatf	= $_GET["id_zakatf"];
 
-$queryuser = mysqli_query($connect, "SELECT * FROM zakat_fitrah WHERE id_zakatf='$id_zakatf'");
-if($queryuser == false){
+$queryzakat = mysqli_query($connect, "SELECT * FROM zakat_fitrah WHERE id_zakatf='$id_zakatf'");
+if($queryzakat == false){
 	die ("Terjadi Kesalahan : ". mysqli_error($connect));
 }
-while($user = mysqli_fetch_array($queryuser)){
+while($zakat = mysqli_fetch_array($queryzakat)) {
 
 ?>
 	<script src="../assets/plugins/daterangepicker/moment.min.js"></script>
@@ -46,7 +46,8 @@ while($user = mysqli_fetch_array($queryuser)){
 										<div class="input-group-addon">
 											<i class="fa fa-user"></i>
 										</div>
-										<input name="tanggal" type="text" class="form-control" value="<?php echo $user["tanggal"]; ?>" readonly />
+										<input name="id_zakatf" type="hidden" class="form-control" value="<?php echo $zakat["id_zakatf"]; ?>" readonly />
+										<input name="tanggal" type="text" class="form-control" value="<?php echo $zakat["tanggal"]; ?>" readonly />
 									</div>
 							</div>
 							<div class="form-group">
@@ -55,7 +56,7 @@ while($user = mysqli_fetch_array($queryuser)){
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" value="<?php echo $user["nama"]; ?>"/>
+										<input name="nama" type="text" class="form-control" value="<?php echo $zakat["nama"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -64,7 +65,7 @@ while($user = mysqli_fetch_array($queryuser)){
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" value="<?php echo $user["alamat"]; ?>"/>
+										<input name="alamat" type="text" class="form-control" value="<?php echo $zakat["alamat"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -73,7 +74,7 @@ while($user = mysqli_fetch_array($queryuser)){
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" value="<?php echo $user["uang"]; ?>"/>
+										<input name="uang" type="text" class="form-control" value="<?php echo $zakat["uang"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -82,7 +83,7 @@ while($user = mysqli_fetch_array($queryuser)){
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="beras" type="text" class="form-control" value="<?php echo $user["beras"]; ?>"/>
+										<input name="beras" type="text" class="form-control" value="<?php echo $zakat["beras"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -112,8 +113,4 @@ while($user = mysqli_fetch_array($queryuser)){
 				</div>
 			</div>
 			
-			
-<?php
-			}
-
-?>
+	<?php }

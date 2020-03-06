@@ -63,7 +63,7 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <!--<img src="../assets/images/<?php// echo "".$_SESSION["images"]."" ?>" class="user-image" alt="images">-->
+
 	<img src="../assets/images/avatar0.jpg" class="user-image" alt="images">
   <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
