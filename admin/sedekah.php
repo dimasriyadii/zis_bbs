@@ -5,7 +5,7 @@ include "../include/session.php";
 <!DOCTYPE html>
 <html>
 <head>
-<title>Infaq | Babussalam</title>
+<title>Sedekah | Babussalam</title>
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
@@ -109,7 +109,7 @@ include "../include/session.php";
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen Infaq</center></b></h4></li>
+						<li class="header"><h4><b><center>Manajemen sedekah</center></b></h4></li>
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
             <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
@@ -123,7 +123,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Infaq
+            Data sedekah
           </h1>
           
         </section>
@@ -141,7 +141,7 @@ include "../include/session.php";
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_infaq.php";
+							include "detail_sedekah.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -150,16 +150,16 @@ include "../include/session.php";
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup infaq -->
+<!-- Modal Popup sedekah -->
 <div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Bayar Infaq</h4>
+						<h4 class="modal-title">Bayar sedekah</h4>
 					</div>
 					<div class="modal-body">
-						<form action="infaq_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="sedekah_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -211,8 +211,8 @@ include "../include/session.php";
 			</div>
 		</div>
 		
-		<!-- Modal Popup infaq Edit -->
-		<div id="ModalEditInfaq" class="modal fade" tabindex="-1" role="dialog"></div>
+		<!-- Modal Popup sedekah Edit -->
+		<div id="ModalEditSedekah" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -245,14 +245,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_infaq");
+			var m = $(this).attr("id_sedekah");
 				$.ajax({
-					url: "infaq_modal_edit.php",
+					url: "sedekah_modal_edit.php",
 					type: "GET",
-					data : {id_infaq: m,},
+					data : {id_sedekah: m,},
 					success: function (ajaxData){
-					$("#ModalEditInfaq").html(ajaxData);
-					$("#ModalEditInfaq").modal('show',{backdrop: 'true'});
+					$("#ModalEditSedekah").html(ajaxData);
+					$("#ModalEditSedekah").modal('show',{backdrop: 'true'});
 					}
 				});
 			});

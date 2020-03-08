@@ -111,7 +111,7 @@ include "../include/session.php";
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
             <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
-            <li><a href="pasien.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
 
           </ul>
         </section>
