@@ -63,7 +63,7 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <!--<img src="../assets/images/<?php// echo "".$_SESSION["images"]."" ?>" class="user-image" alt="images">-->
+
 	<img src="../assets/images/avatar0.jpg" class="user-image" alt="images">
   <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
@@ -110,7 +110,7 @@ include "../include/session.php";
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="dokter.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
             <li><a href="pasien.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
 
           </ul>

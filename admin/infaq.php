@@ -1,14 +1,14 @@
-<?php
+  <?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Zakat | Babussalam</title>
-<meta charset="utf-8">
+<title>Infaq | Babussalam</title>
+<!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
 
 
   <!-- jQuery 2.1.4 -->
@@ -65,7 +65,6 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!--<img src="../assets/foto/<?php// echo "".$_SESSION["Foto"]."" ?>" class="user-image" alt="Foto">-->
               <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
               <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
@@ -74,7 +73,7 @@ include "../include/session.php";
             <li class="user-header">
 	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
                 <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome To ZIS Babussalam</p>
+                <p>Welcome to ZIS Babussalam</p>
              </li>
               
               <!-- Menu Footer-->
@@ -110,11 +109,11 @@ include "../include/session.php";
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen Dokter</center></b></h4></li>
-            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
-            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
-            <li><a href="dokter.php"><i class="fa fa-medkit"></i><span>Dokter</span></a></li>
-            <li><a href="pasien.php"><i class="fa fa-users"></i><span>Pasien</span></a></li>
+						<li class="header"><h4><b><center>Manajemen Infaq</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
+            <li><a href="pasien.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
           </ul>
         </section>
     <!-- /.sidebar -->
@@ -124,7 +123,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Dokter
+            Data Infaq
           </h1>
           
         </section>
@@ -138,10 +137,11 @@ include "../include/session.php";
 
                 </div><!-- /.box-header -->
                 <div class="box-body">
+				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_dokter.php";
+							include "detail_infaq.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -150,103 +150,54 @@ include "../include/session.php";
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup Dosen -->
+<!-- Modal Popup infaq -->
 <div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Tambah Data Dokter</h4>
+						<h4 class="modal-title">Bayar Infaq</h4>
 					</div>
 					<div class="modal-body">
-						<form action="users_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="infaq_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+							<!-- <div class="form-group">
+								<label>Tanggal</label>
+								
+										<input name="tanggal" type="text" class="form-control" placeholder="YYYY/MM/DD"/>
+								
+							</div> -->
+
 							<div class="form-group">
-								<label>Nomor Registrasi Dokter</label>
-									<div class="input-group">
-										
-											<i class=""></i>
-										</div>
-										<input name="no_reg" type="text" class="form-control" placeholder=""/>
-									
-							</div>
-							<div class="form-group">
-								<label>Nama Lengkap</label>
-									<div class="input-group">
-											<i class=""></i>
-										</div>
-										<input name="nama" type="text" class="form-control" placeholder=""/>
-                </div>
-                            
-                <div class="form-group">
-								<label>Alamat</label>
-									<div class="input-group">
-											<i class=""></i>
-										</div>
-										<input name="alamat" type="text" class="form-control" placeholder=""/>
-								</div>
-                          
-									
-									<!-- <div class="form-group">
-									<label>Jenis Dokter</label>
+								<label>Nama</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class=""></i>
+                   							 <i class="fa fa-user"></i>
 										</div>
-										<select name="spesialist" class="form-control">
-										<option value='umum'>Dokter Umum</option>
-										<option value='anak'>Spesialist Anak</option>
-										<option value='anastesi'>Spesialist Anastesi</option>
-										<option value='andrologi'>Spesialist Andrologi</option>
-										<option value='bedah'>Spesialist Bedah</option>
-										<option value='bedah_anak'>Spesialist Bedah Anak</option>
-										<option value='bedah_toraks'>Spesialist Bedah Toraks</option>
-										<option value='bedah_mulut'>Spesialist Bedah Mulut</option>
-										<option value='bedah_plastik'>Spesialist Plastik</option>
-										<option value='bedah_syaraf'>Spesialist Syaraf</option>
-										<option value='forensik'>Spesialist Forensik</option>
-										
-										<option value='jiwa'>Spesialist Jiwa dan Psikiater</option>
-										<option value='tht'>Spesialist THT</option>
-										<option value='gigi'>Spesialist Gigi</option>
-										<option value='gigi_anak'>Spesialist Gigi Anak</option>
-										<option value='kk'>Spesialist Kulit dan Kelamin</option>
-										</select> -->
-                            
-                <div class="form-group">
-								<label>Nomor Telpon</label>
+										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+									</div>
+							</div>
+
+             				 <div class="form-group">
+								<label>Alamat</label>
 									<div class="input-group">
-											<i class=""></i>
+										<div class="input-group-addon">
+                   						 <i class="fa fa-user"></i>
 										</div>
-										<input name="no_telpon" type="text" class="form-control" placeholder=""/>
+										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
 									</div>
-									
-								<div class="form-group">
-								<label>Jenis Kelamin</label>
-									<div class="radio-group">
-										<div class="radio-group-addon">
-											<i class=""></i>
-										</div>
-										<div class="radio-inline">
-  									<label class="radio"><input type="radio" name="jenis_kel" value="L">Laki-Laki</label>
-										</div>
-										<div class="radio-inline">
-  									<label class="radio"><input type="radio" name="jenis_kel" value="P">Perempuan</label>
-										</div>
-									</div>
-                  </div>
-                            
-                  <label>Jenis Dokter</label>
+							</div>
+
+            				  <div class="form-group">
+								<label>Jumlah</label>
 									<div class="input-group">
-											<i class=""></i>
+										<div class="input-group-addon">
+                    					<i class="fa fa-user"></i>
 										</div>
-										<select name="spesialist" class="form-control">
-										<option value='umum'>Dokter Umum</option>
-										<option value='anak'>Spesialist Anak</option>
-										</select>
+										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
 									</div>
+							   </div>
 							
-									
-								<div class="modal-footer">
+									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
 									Add
 								</button>
@@ -260,8 +211,8 @@ include "../include/session.php";
 			</div>
 		</div>
 		
-		<!-- Modal Popup Dosen Edit -->
-		<div id="ModalEditUser" class="modal fade" tabindex="-1" role="dialog"></div>
+		<!-- Modal Popup infaq Edit -->
+		<div id="ModalEditInfaq" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -288,111 +239,26 @@ include "../include/session.php";
 
 	</div><!-- ./wrapper -->
 
-
-	
-
-	
-		<!-- Javascript Edit--> 
-		<script type="text/javascript">
+			<!-- Javascript Edit--> 
+	<script type="text/javascript">
 		$(document).ready(function () {
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_user");
+			var m = $(this).attr("id_infaq");
 				$.ajax({
-					url: "users_modal_edit.php",
+					url: "infaq_modal_edit.php",
 					type: "GET",
-					data : {id_user: m,},
+					data : {id_infaq: m,},
 					success: function (ajaxData){
-					$("#ModalEditUser").html(ajaxData);
-					$("#ModalEditUser").modal('show',{backdrop: 'true'});
+					$("#ModalEditInfaq").html(ajaxData);
+					$("#ModalEditInfaq").modal('show',{backdrop: 'true'});
 					}
 				});
 			});
 		
-		// Mahasiswa
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "training_modal_edit.php",
-					type: "GET",
-					data : {no_tri: m,},
-					success: function (ajaxData){
-					$("#ModalEditTraining").html(ajaxData);
-					$("#ModalEditTraining").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
-			
-		// Ruangan
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "grup_modal_edit.php",
-					type: "GET",
-					data : {id_gr: m,},
-					success: function (ajaxData){
-					$("#ModalEditGrup").html(ajaxData);
-					$("#ModalEditGrup").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
+	
 
-		// Matakuliah
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "matakuliah_modal_edit.php",
-					type: "GET",
-					data : {Kode_Matakuliah: m,},
-					success: function (ajaxData){
-					$("#ModalEditMatakuliah").html(ajaxData);
-					$("#ModalEditMatakuliah").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
-			
-		// Jurusan
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "jurusan_modal_edit.php",
-					type: "GET",
-					data : {Kode_Jurusan: m,},
-					success: function (ajaxData){
-					$("#ModalEditJurusan").html(ajaxData);
-					$("#ModalEditJurusan").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
-			
-		// Jenjang
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "jenjang_modal_edit.php",
-					type: "GET",
-					data : {Kode_Jenjang: m,},
-					success: function (ajaxData){
-					$("#ModalEditJenjang").html(ajaxData);
-					$("#ModalEditJenjang").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
-			
-		// Jadwal
-		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id");
-				$.ajax({
-					url: "jadwal_modal_edit.php",
-					type: "GET",
-					data : {Id_Jadwal: m,},
-					success: function (ajaxData){
-					$("#ModalEditJadwal").html(ajaxData);
-					$("#ModalEditJadwal").modal('show',{backdrop: 'true'});
-					}
-				});
-			});
 		});
 	</script>
 	
@@ -403,3 +269,4 @@ include "../include/session.php";
 			document.getElementById('delete_link').setAttribute('href', delete_url);
 		}
 	</script>
+ 
