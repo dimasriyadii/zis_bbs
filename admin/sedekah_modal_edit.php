@@ -2,13 +2,13 @@
 
 include "../include/connect.php";
 
-$id_infaq	= $_GET["id_infaq"];
+$id_sedekah	= $_GET["id_sedekah"];
 
-$queryinfaq = mysqli_query($connect, "SELECT * FROM infaq WHERE id_infaq='$id_infaq'");
-if($queryinfaq == false){
+$querysedekah = mysqli_query($connect, "SELECT * FROM sedekah WHERE id_sedekah='$id_sedekah'");
+if($querysedekah == false){
 	die ("Terjadi Kesalahan : ". mysqli_error($connect));
 }
-while($infaq = mysqli_fetch_array($queryinfaq)) {
+while($sedekah = mysqli_fetch_array($querysedekah)) {
 
 ?>
 	<script src="../assets/plugins/daterangepicker/moment.min.js"></script>
@@ -27,27 +27,27 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
     </script>
 
 
-	<!-- Modal Popup infaq Edit -->
-		<div id="ModalEditinfaq" class="modal fade" tabindex="-1" role="dialog"></div>
+	<!-- Modal Popup sedekah Edit -->
+		<div id="ModalEditSedekah" class="modal fade" tabindex="-1" role="dialog"></div>
 
 
-<!-- Modal Popup infaq -->
+<!-- Modal Popup Sedekah -->
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Edit infaq</h4>
+						<h4 class="modal-title">Edit Sedekah</h4>
 					</div>
 					<div class="modal-body">
-						<form action="infaq_edit.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="sedekah_edit.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 						<div class="form-group">
 								<label>Tanggal</label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-user"></i>
 										</div>
-										<input name="id_infaq" type="hidden" class="form-control" value="<?php echo $infaq["id_infaq"]; ?>" readonly />
-										<input name="tanggal" type="text" class="form-control" value="<?php echo $infaq["tanggal"]; ?>" readonly />
+										<input name="id_sedekah" type="hidden" class="form-control" value="<?php echo $sedekah["id_sedekah"]; ?>" readonly />
+										<input name="tanggal" type="text" class="form-control" value="<?php echo $sedekah["tanggal"]; ?>" readonly />
 									</div>
 							</div>
 							<div class="form-group">
@@ -56,7 +56,7 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" value="<?php echo $infaq["nama"]; ?>"/>
+										<input name="nama" type="text" class="form-control" value="<?php echo $sedekah["nama"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -65,7 +65,7 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" value="<?php echo $infaq["alamat"]; ?>"/>
+										<input name="alamat" type="text" class="form-control" value="<?php echo $sedekah["alamat"]; ?>"/>
 									</div>
 							</div>
 							<div class="form-group">
@@ -74,7 +74,7 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 										<div class="input-group-addon">
 											<i class="fa fa-id-card"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" value="<?php echo $infaq["jumlah"]; ?>"/>
+										<input name="jumlah" type="text" class="form-control" value="<?php echo $sedekah["jumlah"]; ?>"/>
 									</div>
 							</div>
 							

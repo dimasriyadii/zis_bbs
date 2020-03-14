@@ -109,7 +109,7 @@ include "../include/session.php";
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen sedekah</center></b></h4></li>
+						<li class="header"><h4><b><center>Manajemen Sedekah</center></b></h4></li>
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
             <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
@@ -193,7 +193,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
 									</div>
 							   </div>
 							

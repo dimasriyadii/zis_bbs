@@ -112,6 +112,7 @@ include "../include/session.php";
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
             <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
             <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
 
           </ul>
         </section>
@@ -136,9 +137,9 @@ include "../include/session.php";
         <div class="col-xs-12">
 		  <div class="box">
 		    <div class="box-header">
-				<h1><center><b>RekamMedis</b></center></h1>
+				<h1><center><b>ZIS Babussalam</b></center></h1>
 				<center><img src="../assets/images/logo.png" width="450" height="300" /></center>
-        <center><h2><b>RUMAH SAKIT MEDIKA</b></h2></center>
+        <center><h2><b>Masjid Babussalam</b></h2></center>
 				<center><h4><b>Bandar Lampung<strong></center>
             <div class="inner">
               
