@@ -91,33 +91,11 @@ include "../include/session.php";
       </div>
     </nav>
 </header>  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-				<p><?php echo $_SESSION['username']; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-            <div class="pull-left image">
-              <p></p>
-            </div>
-          </div>
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen Zakat</center></b></h4></li>
-            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
-            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
-            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-          </ul>
-        </section>
-    <!-- /.sidebar -->
-  </aside>  
+<sidebar class="main-sidebar">
+    <div class="pull-right hidden-xs"></div>
+    <strong><?php include "../include/sidebar.php" ?></strong>
+</sidebar>
+ </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->

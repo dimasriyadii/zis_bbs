@@ -44,80 +44,18 @@ include "../include/session.php";
 <body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">
 
-  <header class="main-header">
-  <!-- Logo -->
-<div class="logo">
-<span class="logo-mini"><img src="../assets/images/logo.png" class="img-circle" alt="Logo" height="50" width="50"></span>
-<span class="logo-lg"><b>ZIS Babussalam</b></span>
-</div>
-  <!-- Header Navbar: style can be found in header.less -->
-  <nav class="navbar navbar-static-top" role="navigation">
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
-              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
-          </a>
-          <ul class="dropdown-menu">
-            <!-- User image -->
-            <li class="user-header">
-	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
-                <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome to ZIS Babussalam</p>
-             </li>
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <!-- <div class="pull-left">
-                  <a href="#" class="btn btn-default     btn-flat">Profile</a>
-                </div> -->
-                <div class="pull-right">
-                  <a href="../logout.php" class="btn btn-danger btn-flat">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-</header>  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-				<p><?php echo $_SESSION['username']; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-            <div class="pull-left image">
-              <p></p>
-            </div>
-          </div>
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">					
-						<li class="header"><h4><b><center>Manajemen Infaq</center></b></h4></li>
-            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
-            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
-            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-          </ul>
-        </section>
-    <!-- /.sidebar -->
-  </aside>  
+<header class="main-header">
+    <div class="pull-right hidden-xs"></div>
+    <strong><?php include "../include/header.php" ?></strong>
+</sidebar>
+ </div>  
+ 
+   <!-- Left side column. contains the logo and sidebar -->
+<sidebar class="main-sidebar">
+    <div class="pull-right hidden-xs"></div>
+    <strong><?php include "../include/sidebar.php" ?></strong>
+</sidebar>
+ </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
