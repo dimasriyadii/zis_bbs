@@ -32,6 +32,8 @@
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$zakat[id_zakatf]\")'>Delete</a>
+										<a href='cetak.php' class='btn btn-success' id_zakatf='$zakat[id_zakatf]'>Print</a>
+										<a href='cetak.php?page=detail&id_zakatf=$zakat[id_zakatf]' class='btn btn-info'>Printtt</a>
 									</td>
 								</tr>";
 						}
