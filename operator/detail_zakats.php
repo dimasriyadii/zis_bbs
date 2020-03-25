@@ -1,10 +1,4 @@
 <thead>
-			<form method="get">
-					<label>PILIH TANGGAL</label>
-					<input type="date" name="tanggal">
-					<a href="#"><button class="btn btn-light" type="submit" data-target="#ModalAdd" data-toggle="modal"><i"></i> Filter</button></a>
-					
-			</form>
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
@@ -18,20 +12,12 @@
 				<tbody>
 					<?php
 					$no = 0;
-
-					if(isset($_GET['tanggal'])){
-						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah where tanggal='$tgl'");
-					}else{
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah");
-					}
-						// $queryzakat = mysqli_query ($connect, "SELECT id_zakatf, tanggal, nama, alamat, uang, beras 
-						// FROM zakat_fitrah  where tanggal='$tanggal'");
-						
-						// if($queryzakat == false){
-						// 	die ("Terjadi Kesalahan : ". mysqli_error($connect));
-						// }
-						while ($zakat = mysqli_fetch_array ($sql)){
+						$queryzakat = mysqli_query ($connect, "SELECT id_zakatf, tanggal, nama, alamat, uang, beras 
+						FROM zakat_fitrah");
+						if($queryzakat == false){
+							die ("Terjadi Kesalahan : ". mysqli_error($connect));
+						}
+						while ($zakat = mysqli_fetch_array ($queryzakat)){
 							$no++;
 							
 							echo "

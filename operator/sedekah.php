@@ -5,7 +5,7 @@ include "../include/session.php";
 <!DOCTYPE html>
 <html>
 <head>
-<title>Zakat | Babussalam</title>
+<title>Sedekah | Babussalam</title>
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
@@ -44,64 +44,24 @@ include "../include/session.php";
 <body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">
 
-  <header class="main-header">
-  <!-- Logo -->
-<div class="logo">
-<span class="logo-mini"><img src="../assets/images/logo.png" class="img-circle" alt="Logo" height="50" width="50"></span>
-<span class="logo-lg"><b>ZIS Babussalam</b></span>
-</div>
-  <!-- Header Navbar: style can be found in header.less -->
-  <nav class="navbar navbar-static-top" role="navigation">
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
-              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
-          </a>
-          <ul class="dropdown-menu">
-            <!-- User image -->
-            <li class="user-header">
-	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
-                <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome to ZIS Babussalam</p>
-             </li>
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <!-- <div class="pull-left">
-                  <a href="#" class="btn btn-default     btn-flat">Profile</a>
-                </div> -->
-                <div class="pull-right">
-                  <a href="../logout.php" class="btn btn-danger btn-flat">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-</header>  <!-- Left side column. contains the logo and sidebar -->
+<header class="main-header">
+    <div class="pull-right hidden-xs"></div>
+    <strong><?php include "../include/header.php" ?></strong>
+</sidebar>
+ </div>  
+ 
+<!-- Left side column. contains the logo and sidebar -->
 <sidebar class="main-sidebar">
     <div class="pull-right hidden-xs"></div>
     <strong><?php include "../include/sidebar.php" ?></strong>
 </sidebar>
- </div>  
+ </div> 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Zakat
+            Data sedekah
           </h1>
           
         </section>
@@ -116,13 +76,10 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-				
-				
-
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_zakats.php";
+							include "detail_sedekah.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -131,16 +88,16 @@ include "../include/session.php";
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup Zakat -->
+<!-- Modal Popup sedekah -->
 <div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Bayar Zakat</h4>
+						<h4 class="modal-title">Bayar sedekah</h4>
 					</div>
 					<div class="modal-body">
-						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="sedekah_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -169,25 +126,15 @@ include "../include/session.php";
 							</div>
 
             				  <div class="form-group">
-								<label>Uang</label>
+								<label>Jumlah</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
 									</div>
-							</div>
-
-              					<div class="form-group">
-								<label>Beras</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
-										</div>
-										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
-									</div>
-							</div>
-									
+							   </div>
+							
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
 									Add
@@ -202,8 +149,8 @@ include "../include/session.php";
 			</div>
 		</div>
 		
-		<!-- Modal Popup zakat Edit -->
-		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
+		<!-- Modal Popup sedekah Edit -->
+		<div id="ModalEditSedekah" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -236,14 +183,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_zakatf");
+			var m = $(this).attr("id_sedekah");
 				$.ajax({
-					url: "zakats_modal_edit.php",
+					url: "sedekah_modal_edit.php",
 					type: "GET",
-					data : {id_zakatf: m,},
+					data : {id_sedekah: m,},
 					success: function (ajaxData){
-					$("#ModalEditZakat").html(ajaxData);
-					$("#ModalEditZakat").modal('show',{backdrop: 'true'});
+					$("#ModalEditSedekah").html(ajaxData);
+					$("#ModalEditSedekah").modal('show',{backdrop: 'true'});
 					}
 				});
 			});

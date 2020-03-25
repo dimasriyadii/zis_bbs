@@ -27,9 +27,7 @@
 									<td>$infaq[jumlah]</td>
 
 									<td>
-										<a href='#' class='open_modal btn btn-primary' id_infaq='$infaq[id_infaq]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"infaq_delete.php?id_infaq=$infaq[id_infaq]\")'>Delete</a>
-										<a href='cetakinfaq.php?id_infaq=$infaq[id_infaq]' target=_blank  class='btn btn-success'>Print</a>
 									</td>
 								</tr>";
 						}

@@ -5,7 +5,7 @@ include "../include/session.php";
 <!DOCTYPE html>
 <html>
 <head>
-<title>Zakat | Babussalam</title>
+<title>Users | Babussalam</title>
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
@@ -90,8 +90,9 @@ include "../include/session.php";
         </ul>
       </div>
     </nav>
-</header>  <!-- Left side column. contains the logo and sidebar -->
-<sidebar class="main-sidebar">
+</header> 
+ <!-- Left side column. contains the logo and sidebar -->
+ <sidebar class="main-sidebar">
     <div class="pull-right hidden-xs"></div>
     <strong><?php include "../include/sidebar.php" ?></strong>
 </sidebar>
@@ -101,7 +102,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Zakat
+            Data Users
           </h1>
           
         </section>
@@ -116,13 +117,10 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-				
-				
-
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_zakats.php";
+							include "detail_users.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -131,16 +129,16 @@ include "../include/session.php";
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup Zakat -->
+<!-- Modal Popup Users -->
 <div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Bayar Zakat</h4>
+						<h4 class="modal-title">Tambah User</h4>
 					</div>
 					<div class="modal-body">
-						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="users_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -169,25 +167,15 @@ include "../include/session.php";
 							</div>
 
             				  <div class="form-group">
-								<label>Uang</label>
+								<label>Jumlah</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
 									</div>
-							</div>
-
-              					<div class="form-group">
-								<label>Beras</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
-										</div>
-										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
-									</div>
-							</div>
-									
+							   </div>
+							
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">
 									Add
@@ -202,8 +190,8 @@ include "../include/session.php";
 			</div>
 		</div>
 		
-		<!-- Modal Popup zakat Edit -->
-		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
+		<!-- Modal Popup users Edit -->
+		<div id="ModalEditUsers" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -236,14 +224,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_zakatf");
+			var m = $(this).attr("id_users");
 				$.ajax({
-					url: "zakats_modal_edit.php",
+					url: "users_modal_edit.php",
 					type: "GET",
-					data : {id_zakatf: m,},
+					data : {id_users: m,},
 					success: function (ajaxData){
-					$("#ModalEditZakat").html(ajaxData);
-					$("#ModalEditZakat").modal('show',{backdrop: 'true'});
+					$("#ModalEditUsers").html(ajaxData);
+					$("#ModalEditUsers").modal('show',{backdrop: 'true'});
 					}
 				});
 			});

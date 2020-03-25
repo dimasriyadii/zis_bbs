@@ -116,9 +116,6 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-				
-				
-
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php

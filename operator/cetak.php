@@ -48,7 +48,7 @@ while ($zakat = mysqli_fetch_array($queryzakat)){
     $pdf->ln(15);
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->Cell(0,10,'Bandar Lampung, ',0,0,'C');
+    $pdf->Cell(0,10,'Bandar Lampung, ',0,0,'L');
     $pdf->Cell(0,10,$zakat['tanggal'],0,0,'R');
     $pdf->ln(10);
     $pdf->SetFont('Arial','',10);
