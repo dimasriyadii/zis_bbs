@@ -92,11 +92,34 @@ include "../include/session.php";
     </nav>
 </header> 
  <!-- Left side column. contains the logo and sidebar -->
- <sidebar class="main-sidebar">
-    <div class="pull-right hidden-xs"></div>
-    <strong><?php include "../include/sidebar.php" ?></strong>
-</sidebar>
- </div>  
+ <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+        <p><?php echo $_SESSION['username']; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+            <div class="pull-left image">
+              <p></p>
+            </div>
+          </div><!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+		  <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+
+          </ul>
+        </section>
+    <!-- /.sidebar -->
+  </aside> 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -157,24 +180,38 @@ include "../include/session.php";
 							</div>
 
              				 <div class="form-group">
-								<label>Alamat</label>
+								<label>Username</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="username" type="text" class="form-control" placeholder="Username"/>
 									</div>
 							</div>
 
             				  <div class="form-group">
-								<label>Jumlah</label>
+								<label>Password</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
+										<input name="password" type="text" class="form-control" placeholder="Password"/>
 									</div>
 							   </div>
+
+                 <div class="form-group">
+								<label>Level</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-flag"></i>
+										</div>
+										<select name="level" class="form-control">
+										<option value='admin'>admin</option>
+                    <option value='dokter'>dokter</option>
+                    <option value='operator'>operator</option>
+										</select>
+									</div>
+									</div>
 							
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">

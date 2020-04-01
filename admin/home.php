@@ -73,7 +73,7 @@ include "../include/session.php";
             <li class="user-header">
 	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
                 <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome To RekamMedis</p>
+                <p>Welcome To ZIS Babussalam</p>
              </li>
               
               <!-- Menu Footer-->
@@ -113,7 +113,7 @@ include "../include/session.php";
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="infaq.php"><i class="fa fa-medkit"></i><span>Infaq</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
             <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
 

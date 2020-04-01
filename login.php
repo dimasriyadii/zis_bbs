@@ -105,39 +105,5 @@
 							}
 						}
 						?>
-
-
-
-<!-- <?php
-include "./include/connect.php";
-session_start();
-$username = @$_POST["username"];
-$password = @$_POST["password"];
-$level    = $_POST["level"];
-
-$username = stripslashes("$username");
-$password = stripslashes("$password");
-$level    = stripslashes("$level");
-$username = mysqli_real_escape_string($connect, $username);
-$password = mysqli_real_escape_string($connect, $password);
-$query = mysqli_query($connect,"SELECT * FROM user WHERE
-password='$password' AND username='$username'");
-
-$row = mysqli_num_rows($query);
-if ($row == 1) {
-    $_SESSION['login_user'] = $username;
-    echo "<script>alert('Anda berhasil login');
-    window.location = 'admin/home.php';</script>";
-}
-else {
-    echo "<script>alert('Username dan Password salah');
-    // window.location = './login.php';</script>";
-}
- ?> -->
-
-<?php
-include "./include/footer.php"
-?>
-                </div>
     </body>
 </html>

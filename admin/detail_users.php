@@ -1,10 +1,8 @@
 <thead>
 					<tr>
 						<th>No</th>
-						<th>Id User</th>
 						<th>Nama</th>
 						<th>Username</th>
-						<th>Password</th>
 						<th>Level</th>
 						<th>Opsi</th>
 					</tr>
@@ -22,10 +20,8 @@
 							echo "
 								<tr>
 									<td>$no</td>
-									<td>$users[id_users]</td>
 									<td>$users[nama]</td>
 									<td>$users[username]</td>
-									<td>$users[password]</td>
 									<td>$users[level]</td>
 
 									<td>

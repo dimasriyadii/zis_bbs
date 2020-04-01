@@ -1,9 +1,9 @@
 <thead>
+
 			<form method="get">
-					<label>PILIH TANGGAL</label>
+					<label>PILIH TANGGAL   </label>
 					<input type="date" name="tanggal">
-					<a href="#"><button class="btn btn-light" type="submit" data-target="#ModalAdd" data-toggle="modal"><i"></i> Filter</button></a>
-					
+					<a href="#"><button class="btn btn-warning" type="submit" data-target="#ModalAdd" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>
 					<tr>
 						<th>No</th>
@@ -45,12 +45,7 @@
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$zakat[id_zakatf]\")'>Delete</a>
-<<<<<<< HEAD
 										<a href='cetak.php?id_zakatf=$zakat[id_zakatf]' target=_blank  class='btn btn-success'>Print</a>
-=======
-										<a href='test.php?id_zakatf=$zakat[id_zakatf]' class='btn btn-success' >Print</a>
-										<a href='cetak.php?id_zakatf=$zakat[id_zakatf]' class='btn btn-info'>Printtt</a>
->>>>>>> 338b7cf20014fad1106e4ab0d29697cf2a1f7882
 									</td>
 								</tr>";
 						}

@@ -1,4 +1,9 @@
 <thead>
+			<form method="get">
+					<label>PILIH TANGGAL   </label>
+					<input type="date" name="tanggal">
+					<a href="#"><button class="btn btn-warning" type="submit" data-target="#ModalAdd" data-toggle="modal"><i"></i> Filter</button></a>
+			</form>
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
@@ -11,10 +16,17 @@
 				<tbody>
 					<?php
 					$no = 0;
-						$queryinfaq = mysqli_query ($connect, "SELECT id_infaq, tanggal, nama, alamat, jumlah FROM infaq");
-						if($queryinfaq == false){
-							die ("Terjadi Kesalahan : ". mysqli_error($connect));
-						}
+					if(isset($_GET['tanggal'])){
+						$tgl = $_GET['tanggal'];
+						$queryinfaq = mysqli_query($connect,"select id_infaq, tanggal, nama, alamat, jumlah FROM infaq where tanggal='$tgl'");
+					}else{
+						$queryinfaq = mysqli_query($connect,"select id_infaq, tanggal, nama, alamat, jumlah FROM infaq");
+					}
+
+						//$queryinfaq = mysqli_query ($connect, "SELECT id_infaq, tanggal, nama, alamat, jumlah FROM infaq");
+						//if($queryinfaq == false){
+						//	die ("Terjadi Kesalahan : ". mysqli_error($connect));
+						//}
 						while ($infaq = mysqli_fetch_array ($queryinfaq)){
 							$no++;
 							

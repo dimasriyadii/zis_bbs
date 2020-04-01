@@ -2,7 +2,7 @@
 include "../include/connect.php";
 include "../include/session.php"; 
 
-$id_zakatf = $_GET['id_zakatf'];
+$id_sedekah = $_GET['id_sedekah'];
 // memanggil library FPDF
 require('../assets/fpdf/fpdf.php');
 // intance object dan memberikan pengaturan halaman PDF
@@ -20,40 +20,35 @@ $pdf->Image('kop.jpg',10,10,189);
 // Memberikan space kebawah agar tidak terlalu rapat
 $pdf->Cell(10,7,'',0,1);
 
-$queryzakat = mysqli_query($connect, "SELECT * FROM zakat_fitrah WHERE id_zakatf= '$id_zakatf'");
-while ($zakat = mysqli_fetch_array($queryzakat)){
+$querysedekah = mysqli_query($connect, "SELECT * FROM sedekah WHERE id_sedekah= '$id_sedekah'");
+while ($sedekah = mysqli_fetch_array($querysedekah)){
 
     $pdf->Image('kop.jpg',10,10,189);
     $pdf->Cell(35,32,'',25,26);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190,7,'BUKTI PEMBAYARAN ZAKAT MASJID BABUSSALAM',0,1,'C');
-// <<<<<<< HEAD
+    $pdf->Cell(190,7,'BUKTI PEMBAYARAN SEDEKAH MASJID BABUSSALAM',0,1,'C');
     $pdf->ln(13);
 
     
     $pdf->SetFont('Arial','',10);
-    $pdf->Cell(24,6,'Nama          :  ',0,0,'L');
-    $pdf->Cell(0,6,$zakat['nama']);
+    $pdf->Cell(24,6,'Atas Nama  :  ',0,0,'R');
+    $pdf->Cell(0,6,$sedekah['nama']);
 
     $pdf->ln(10);
     $pdf->Cell(27,6,'Alamat        :  ',0,0,'L');
-    $pdf->Cell(0,6,$zakat['alamat']);
+    $pdf->Cell(0,6,$sedekah['alamat']);
     
     $pdf->ln(10);
-    $pdf->Cell(25,6,'Uang           :  ',0,0,'L');
-    $pdf->Cell(0,6,$zakat['uang'],0,0);
+    $pdf->Cell(25,6,'Uang           :  ');
+    $pdf->Cell(0,6,$sedekah['jumlah'],0,0,'L');
 
-    $pdf->ln(10);
-    $pdf->Cell(30,6,'Beras          :  ',0,0,'L');
-    $pdf->Cell(0,6, $zakat['beras'],0,0);
     $pdf->ln(15);
 
     $pdf->SetFont('Arial','B',10);
     $pdf->Cell(0,10,'Bandar Lampung, ',0,0,'L');
-    $pdf->Cell(0,6,$zakat['tanggal'],0,L,'R');
+    $pdf->Cell(0,10,$sedekah['tanggal'],0,0,'R');
     $pdf->ln(10);
     $pdf->SetFont('Arial','',10);
-
     $pdf->Cell(190,6,'PANITIA AMIL ZAKAT',0,1,'R');
     $pdf->ln(20);
     $pdf->Cell(190,6,'___________________',0,1,'R');
