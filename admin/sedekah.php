@@ -1,4 +1,4 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
@@ -42,6 +42,15 @@ include "../include/session.php";
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini ">
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
 <div class="wrapper">
 
 <header class="main-header">

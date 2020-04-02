@@ -1,6 +1,12 @@
 <?php
 include "../include/connect.php";
 include "../include/session.php"; 
+session_start();
+ 
+// cek apakah yang mengakses halaman ini sudah login
+if($_SESSION['level']==""){
+    header("location:login.php?pesan=gagal");
+}
 
 $id_sedekah = $_GET['id_sedekah'];
 // memanggil library FPDF
