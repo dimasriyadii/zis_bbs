@@ -2,7 +2,7 @@
 			<form method="get">
 					<label>PILIH TANGGAL   </label>
 					<input type="date" name="tanggal">
-					<a href="#"><button class="btn btn-warning" type="submit" data-target="#ModalAdd" data-toggle="modal"><i"></i> Filter</button></a>
+					<a href="#"><button class="btn btn-warning" type="submit" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>
 					<tr>
 						<th>No</th>

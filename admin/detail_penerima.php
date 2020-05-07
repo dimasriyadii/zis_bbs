@@ -7,12 +7,12 @@
 			</form>
 					<tr>
 						<th>No</th>
-						<th>Tanggal</th>
 						<th>Nama</th>
-						<th>Alamat</th>
+						<th>Kelurahan</th>
+						<th>RT</th>
 						<th>Uang</th>
 						<th>Beras</th>
-						<th>Opsi</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -21,9 +21,9 @@
 
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah where tanggal='$tgl'");
+						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from tbl_penerima");
 					}else{
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah");
+						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from tbl_penerima");
 					}
 						// $queryzakat = mysqli_query ($connect, "SELECT id_zakatf, tanggal, nama, alamat, uang, beras 
 						// FROM zakat_fitrah  where tanggal='$tanggal'");
@@ -37,11 +37,13 @@
 							echo "
 								<tr>
 									<td>$no</td>
-									<td>$zakat[tanggal]</td>
 									<td>$zakat[nama]</td>
-									<td>$zakat[alamat]</td>
+									<td>$zakat[kelurahan]</td>
+									<td>$zakat[rt]</td>
 									<td>$zakat[uang]</td>
 									<td>$zakat[beras]</td>
+									<td>$zakat[status]</td>
+									
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$zakat[id_zakatf]\")'>Delete</a>

@@ -5,6 +5,7 @@
 					<input type="date" name="tanggal">
 					<a href="#"><button class="btn btn-warning" type="submit" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>
+			
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
