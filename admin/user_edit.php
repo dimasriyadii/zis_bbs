@@ -10,7 +10,7 @@ $password		= $_POST["password"];
 $level			= $_POST["level"];
 
 if ($edit = mysqli_query($connect, "UPDATE user SET id_users='$id_users', nama='$nama', username='$username', password='$password', level='$level' WHERE id_users='$id_users'")){
-	header("Location: users.php");
+	header("location: users.php");
 	exit();
 	}
 die ("Terdapat kesalahan : ". mysqli_error($connect));

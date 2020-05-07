@@ -37,9 +37,23 @@ include "../include/session.php";
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/dist/css/AdminLTE.min.css">
 
+<<<<<<< HEAD
 <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="../assets/dist/css/skins/_all-skins.min.css">
 </head>
+=======
+<body class="hold-transition skin-blue sidebar-mini">
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
+<div class="wrapper">
+>>>>>>> c7bb4c92b64a953a027726d4649b39b25748cb7f
 
 <body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">

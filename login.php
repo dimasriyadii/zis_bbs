@@ -25,7 +25,7 @@
 		  <!-- /.login-logo -->
 		  <div class="login-box-body">
         <b><p class="login-box-msg">Login</p></b>
-			<form action="login.php" method="post">
+			<form action="cek_login.php" method="post">
 			  <div class="form-group has-feedback">
 				<input type="text" name="username" class="form-control" placeholder="username" />
 					<span class="form-control-feedback"><i class="fa fa-user"></i></span>
@@ -48,62 +48,5 @@
 				</div>
 			  </div>
     </form>
-
-    <?php
-    include "./include/connect.php";
-			$username= @$_POST['username'];
-			$password= @$_POST['password'];
-      $login= @$_POST['login'];
-      
-      // ANTI SQL INJECTION
-      $username = stripslashes("$username");
-      $password = stripslashes("$password");
-      $username = mysqli_real_escape_string($connect, $username);
-      $password = mysqli_real_escape_string($connect, $password);
-      // $password = md5($password);
-
-				if($login){
-					if($username == "" || $password == ""){
-            ?> <script type="text/javascript">alert("Username / password tidak boleh kosong");</script> 
-            
-            <?php
-					} else {
-						$sql= mysqli_query($connect, "select * from user where username = '$username' and password = '$password'");
-						$data = mysqli_fetch_array($sql);
-						$cek = mysqli_num_rows($sql);
-							if($cek >= 1){
-								session_start();
-	 
-								$_SESSION['username'] 	= $data['username'];
-								$_SESSION['password'] 	= $data['password'];
-								$_SESSION['level']    	= $data['level'];
-
-								 if ($data['level'] == "admin")
-                                {  echo'<script type="text/javascript">
-                                window.location.href="admin/home.php";
-                                </script>';
-                                }
-                                else if ($data['level'] == "dokter")
-                                { echo'<script type="text/javascript">
-                                window.location.href="dokter/home.php";
-                                </script>';
-                                }
-                                elseif ($data['level'] == "operator") {
-                                  echo'<script type="text/javascript">
-                                  window.location.href="operator/home.php";
-                                  </script>';
-                                }
-								
-
-							}else {
-								?>
-									<script type="text/javascript">
-									alert("Maaf login gagal");
-									</script>
-									<?php
-								}
-							}
-						}
-						?>
     </body>
 </html>

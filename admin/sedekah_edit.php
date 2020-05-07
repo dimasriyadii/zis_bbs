@@ -11,7 +11,7 @@ $jumlah			= $_POST["jumlah"];
 
 if ($edit = mysqli_query($connect, "UPDATE sedekah SET id_sedekah='$id_sedekah', 
 tanggal='$tanggal', nama='$nama', alamat='$alamat', jumlah='$jumlah' WHERE id_sedekah='$id_sedekah'")){
-		header("Location: sedekah.php");
+		header("location: sedekah.php");
 		exit();
 	}
 die ("Terdapat kesalahan : ". mysqli_error($connect));
