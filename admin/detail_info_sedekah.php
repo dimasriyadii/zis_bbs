@@ -3,7 +3,7 @@
 				
 				<tbody>
 				<?php
-					$queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq");
+					$queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM sedekah");
 					$data1 = mysqli_fetch_array($queryjumlah);
 
 					//tungitung
@@ -16,7 +16,7 @@
 					<?php
 								echo "
 								<tr>
-									<td>Infaq</td>
+									<td>Sedekah</td>
 									<td>$data1[jumlah]</td>
 								</tr>";
 					?>

@@ -24,7 +24,7 @@
 					<?php
 								echo "
 								<tr>
-									<td>Zakat</td>
+									<td>Zakat Fitrah</td>
 									<td>$hasil_uang</td>
 									<td>$hasil_beras</td>
 								</tr>";

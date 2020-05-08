@@ -170,11 +170,25 @@ include "../include/session.php";
                   </table>
 
                   <table id="data" class="table table-bordered table-striped table-scalable">
-						</br>
-            <h3>INFAQ</h3> <?php
-							include "detail_info_infaq.php";
-						?>
-                  </table>
+						          </br>
+                     <h3>Infaq</h3>
+                      <?php
+						          	include "detail_info_infaq.php";
+					          	?>
+                </table>
+
+
+                <table width="600px" id="data" class="table table-bordered table-striped table-scalable">
+						          </br>
+                     <h3>Sedekah</h3>
+                      <?php
+						          	include "detail_info_sedekah.php";
+					          	?>
+                </table>
+
+
+
+
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->

@@ -9,7 +9,7 @@
 						<th>Tanggal</th>
 						<th>Nama</th>
 						<th>Alamat</th>
-						<th>Jumlah</th>
+						<th>Jumlah Uang (Rp)</th>
 						<th>Opsi</th>
 					</tr>
 				</thead>
