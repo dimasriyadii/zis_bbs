@@ -167,7 +167,7 @@ include "../include/session.php";
 						<h4 class="modal-title">Penerima</h4>
 					</div>
 					<div class="modal-body">
-						<form action="penerima_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="penerima_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"  method="POST">
 							
 							<div class="form-group">
 								<label>Nama</label>
@@ -175,7 +175,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
@@ -185,7 +185,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="kelurahan" type="text" class="form-control" placeholder="Kelurahan"/>
+										<input name="kelurahan" type="text" class="form-control" placeholder="Kelurahan" id="kelurahan" />
 									</div>
 							</div>
 
@@ -195,7 +195,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="rt" type="text" class="form-control" placeholder="RT"/>
+										<input name="rt" type="text" class="form-control" placeholder="RT" id="rt" />
 									</div>
 							</div>
 
@@ -205,7 +205,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="uang" type="text" class="form-control" placeholder="Uang Rp" id="uang" />
 									</div>
 							</div>
 
@@ -215,7 +215,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
+										<input name="beras" type="text" class="form-control" placeholder="Beras Kg" id="beras" />
 									</div>
 							</div>
 
@@ -225,7 +225,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="status" type="text" class="form-control" placeholder="Status"/>
+										<input name="status" type="text" class="form-control" placeholder="Status" id="status"/>
 									</div>
 							</div>
 
@@ -239,11 +239,68 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
+		<script type="text/javascript" src="validasi.js"></script>
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var name = document.getElementById( "nama" );
+			if( name.value == "" )
+			{
+			error = " You Have To Write Your Name. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var kelurahan = document.getElementById( "kelurahan" );
+			if( kelurahan.value == "" )
+			{
+			error = " You Have To Write Your Kelurahan. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var rt = document.getElementById( "rt" );
+			if( rt.value == "" )
+			{
+			error = " You Have To Write RT. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " You Have To Write Uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " You Have To Write Beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var status = document.getElementById( "status" );
+			if( status.value == "" )
+			{
+			error = " You Have To Write Status. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
 		<!-- Modal Popup zakat Edit -->
 		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
 		
@@ -272,7 +329,7 @@ include "../include/session.php";
 
 	</div><!-- ./wrapper -->
 
-			<!-- Javascript Edit--> 
+	<!-- Javascript Edit--> 
 	<script type="text/javascript">
 		$(document).ready(function () {
 		
@@ -302,4 +359,6 @@ include "../include/session.php";
 			document.getElementById('delete_link').setAttribute('href', delete_url);
 		}
 	</script>
+
+
  

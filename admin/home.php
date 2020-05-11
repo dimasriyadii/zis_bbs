@@ -158,25 +158,20 @@ include "../include/session.php";
                 <div class="box-header">
                 </div><!-- /.box-header -->
                 <div class="box-body">
-<<<<<<< HEAD
                         <div class="table-responsive">
                       <table id="data" class="table table-bordered table-striped table-hover">
                         <h3> Zakat</h3> 
-=======
                     <a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
                         <br></br>
                         <div class="table-responsive">
                       <table id="data" class="table table-bordered table-striped table-hover">
                         </br>
                         <!-- <h3> Zakat</h3>  -->
->>>>>>> da6500f41de863d09c4bc3fc4c70f2974ddcce54
                         <?php
                           include "detail_info.php";
                         ?>
                       </table>
                         </div>
-<<<<<<< HEAD
-=======
 
                         <div class="table-responsive">
                         <table id="data" class="table table-bordered table-striped table-hover">
@@ -197,7 +192,7 @@ include "../include/session.php";
                             ?>
                       </table>
                       </div>
->>>>>>> da6500f41de863d09c4bc3fc4c70f2974ddcce54
+
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
