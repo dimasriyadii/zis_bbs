@@ -167,7 +167,7 @@ include "../include/session.php";
 						<h4 class="modal-title">Penerima</h4>
 					</div>
 					<div class="modal-body">
-						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="penerima_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 							
 							<div class="form-group">
 								<label>Nama</label>
@@ -219,9 +219,19 @@ include "../include/session.php";
 									</div>
 							</div>
 
+							<div class="form-group">
+								<label>Status</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+                   						 <i class="fa fa-user"></i>
+										</div>
+										<input name="status" type="text" class="form-control" placeholder="Status"/>
+									</div>
+							</div>
+
 												
 									<div class="modal-footer">
-								<button class="btn btn-success" type="submit">
+								<button class="btn btn-success" type="submit" name="simpan">
 									Add
 								</button>
 								<button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
@@ -268,14 +278,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_zakatf");
+			var m = $(this).attr("id_penerima");
 				$.ajax({
-					url: "zakats_modal_edit.php",
+					url: "penerima_modal_edit.php",
 					type: "GET",
-					data : {id_zakatf: m,},
+					data : {id_penerima: m,},
 					success: function (ajaxData){
-					$("#ModalEditZakat").html(ajaxData);
-					$("#ModalEditZakat").modal('show',{backdrop: 'true'});
+					$("#ModalEditPenerima").html(ajaxData);
+					$("#ModalEditPenerima").modal('show',{backdrop: 'true'});
 					}
 				});
 			});

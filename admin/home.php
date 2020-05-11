@@ -37,11 +37,11 @@ include "../include/session.php";
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/dist/css/AdminLTE.min.css">
 
-<<<<<<< HEAD
+
 <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="../assets/dist/css/skins/_all-skins.min.css">
 </head>
-=======
+
 <body class="hold-transition skin-blue sidebar-mini">
 <?php 
 	session_start();
@@ -53,7 +53,6 @@ include "../include/session.php";
  
 	?>
 <div class="wrapper">
->>>>>>> c7bb4c92b64a953a027726d4649b39b25748cb7f
 
 <body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">
@@ -157,38 +156,16 @@ include "../include/session.php";
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-
                 </div><!-- /.box-header -->
                 <div class="box-body">
-				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-                  <br></br>
-				  <table id="data" class="table table-bordered table-striped table-scalable">
-						</br>
-            <h3> Zakat</h3> <?php
-							include "detail_info.php";
-						?>
-                  </table>
-
-                  <table id="data" class="table table-bordered table-striped table-scalable">
-						          </br>
-                     <h3>Infaq</h3>
-                      <?php
-						          	include "detail_info_infaq.php";
-					          	?>
-                </table>
-
-
-                <table width="600px" id="data" class="table table-bordered table-striped table-scalable">
-						          </br>
-                     <h3>Sedekah</h3>
-                      <?php
-						          	include "detail_info_sedekah.php";
-					          	?>
-                </table>
-
-
-
-
+                        <div class="table-responsive">
+                      <table id="data" class="table table-bordered table-striped table-hover">
+                        <h3> Zakat</h3> 
+                        <?php
+                          include "detail_info.php";
+                        ?>
+                      </table>
+                        </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
