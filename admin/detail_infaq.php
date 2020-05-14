@@ -9,7 +9,7 @@
 						<th>Tanggal</th>
 						<th>Nama</th>
 						<th>Alamat</th>
-						<th>Jumlah Uang (Rp)</th>
+						<th>Jumlah</th>
 						<th>Opsi</th>
 					</tr>
 				</thead>
@@ -29,6 +29,13 @@
 						//}
 						while ($infaq = mysqli_fetch_array ($queryinfaq)){
 							$no++;
+
+						?>
+
+						<?php
+
+							$angka = $infaq['jumlah'];
+							$angka_format = number_format($angka,2,",",".");
 							
 							echo "
 								<tr>
@@ -36,7 +43,7 @@
 									<td>$infaq[tanggal]</td>
 									<td>$infaq[nama]</td>
 									<td>$infaq[alamat]</td>
-									<td>$infaq[jumlah]</td>
+									<td>Rp. $angka_format</td>
 
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_infaq='$infaq[id_infaq]'>Edit</a> 

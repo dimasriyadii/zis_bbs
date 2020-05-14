@@ -173,7 +173,7 @@ include "../include/session.php";
 						<h4 class="modal-title">Bayar Infaq</h4>
 					</div>
 					<div class="modal-body">
-						<form action="infaq_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="infaq_add.php" name="validasi_form" enctype="multipart/form-data"  onsubmit="return validate()"  method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -187,7 +187,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
@@ -197,7 +197,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="alamat" type="text" class="form-control" placeholder="Alamat" id="alamat"/>
 									</div>
 							</div>
 
@@ -207,7 +207,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
+										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp" id="jumlah"/>
 									</div>
 							   </div>
 							
@@ -220,10 +220,50 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+						
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+				<!-- kode error cuy -->
+
+				<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var jumlah = document.getElementById( "jumlah" );
+			if( jumlah.value == "" )
+			{
+			error = " Kamu harus isi form jumlah. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
 		
 		<!-- Modal Popup infaq Edit -->
 		<div id="ModalEditInfaq" class="modal fade" tabindex="-1" role="dialog"></div>

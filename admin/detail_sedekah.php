@@ -31,14 +31,21 @@
 						//}
 						while ($sedekah = mysqli_fetch_array ($querysedekah)){
 							$no++;
-							
+					?>
+
+
+						<?php
+
+							$angka = $sedekah['jumlah'];
+							$angka_format = number_format($angka,2,",",".");
+
 							echo "
 								<tr>
 									<td>$no</td>
 									<td>$sedekah[tanggal]</td>
 									<td>$sedekah[nama]</td>
 									<td>$sedekah[alamat]</td>
-									<td>$sedekah[jumlah]</td>
+									<td>Rp. $angka_format</td>
 
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_sedekah='$sedekah[id_sedekah]'>Edit</a> 

@@ -209,7 +209,7 @@ include "../include/session.php";
 									</div>
 							   </div>
 
-                 <div class="form-group">
+                			 <div class="form-group">
 								<label>Level</label>
 									<div class="input-group">
 										<div class="input-group-addon">

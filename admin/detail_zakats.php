@@ -17,6 +17,7 @@
 				</thead>
 				<tbody>
 					<?php
+
 					$no = 0;
 
 					if(isset($_GET['tanggal'])){
@@ -33,6 +34,12 @@
 						// }
 						while ($zakat = mysqli_fetch_array ($sql)){
 							$no++;
+						?>
+
+						<?php
+							
+							$angka = $zakat['uang'];
+							$angka_format = number_format($angka,2,",",".");
 							
 							echo "
 								<tr>
@@ -40,8 +47,8 @@
 									<td>$zakat[tanggal]</td>
 									<td>$zakat[nama]</td>
 									<td>$zakat[alamat]</td>
-									<td>$zakat[uang]</td>
-									<td>$zakat[beras]</td>
+									<td>Rp. $angka_format</td>
+									<td>$zakat[beras] Kilogram</td>
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"zakats_delete.php?id_zakatf=$zakat[id_zakatf]\")'>Delete</a>

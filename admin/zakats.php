@@ -176,7 +176,7 @@ include "../include/session.php";
 						<h4 class="modal-title">Bayar Zakat</h4>
 					</div>
 					<div class="modal-body">
-						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"  method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -190,7 +190,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
@@ -200,7 +200,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="alamat" type="text" class="form-control" placeholder="Alamat"id="alamat"/>
 									</div>
 							</div>
 
@@ -210,7 +210,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"id="uang"/>
 									</div>
 							</div>
 
@@ -220,7 +220,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
+										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"id="beras"/>
 									</div>
 							</div>
 									
@@ -233,10 +233,58 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<!-- kode error cuy -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " Kamu harus isi form uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " Kamu harus isi form beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
 		
 		<!-- Modal Popup zakat Edit -->
 		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>

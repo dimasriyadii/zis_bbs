@@ -223,11 +223,14 @@ include "../include/session.php";
 								<label>Status</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
+											<i class="fa fa-flag"></i>
 										</div>
-										<input name="status" type="text" class="form-control" placeholder="Status" id="status"/>
+										<select name="status" class="form-control">
+										<option value='sudah'>Sudah Dibayarkan</option>
+                  						<option value='belum'>Belum Dibayarkan</option>
+										</select>
 									</div>
-							</div>
+									</div>
 
 												
 									<div class="modal-footer">
@@ -245,7 +248,6 @@ include "../include/session.php";
 			</div>
 		</div>
 
-		<script type="text/javascript" src="validasi.js"></script>
 
 		<script type="text/javascript">
 			function validate()

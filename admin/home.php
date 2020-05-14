@@ -155,44 +155,19 @@ include "../include/session.php";
           <div class="row">
             <div class="col-xs-12">
               <div class="box">
-                <div class="box-header">
-                </div><!-- /.box-header -->
                 <div class="box-body">
                         <div class="table-responsive">
                       <table id="data" class="table table-bordered table-striped table-hover">
-                        <h3> Zakat</h3> 
-                    <a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-                        <br></br>
                         <div class="table-responsive">
                       <table id="data" class="table table-bordered table-striped table-hover">
-                        </br>
-                        <!-- <h3> Zakat</h3>  -->
+                        
+                        <h3> Laporan</h3> 
                         <?php
                           include "detail_info.php";
                         ?>
                       </table>
                         </div>
-
-                        <div class="table-responsive">
-                        <table id="data" class="table table-bordered table-striped table-hover">
-                            </br>
-                          <h3>Infaq</h3>
-                            <?php
-                              include "detail_info_infaq.php";
-                            ?>
-                      </table>
-                      </div>
-
-                      <div class="table-responsive">
-                      <table id="data" class="table table-bordered table-striped table-hover">
-                            </br>
-                          <h3>Sedekah</h3>
-                            <?php
-                              include "detail_info_sedekah.php";
-                            ?>
-                      </table>
-                      </div>
-
+                        
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
