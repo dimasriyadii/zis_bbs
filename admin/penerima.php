@@ -304,7 +304,7 @@ include "../include/session.php";
 		</script>
 
 		<!-- Modal Popup zakat Edit -->
-		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
+		<div id="ModalEditPenerima" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
