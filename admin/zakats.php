@@ -175,8 +175,9 @@ include "../include/session.php";
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Bayar Zakat</h4>
 					</div>
+					<!-- onsubmit="return validate()" -->
 					<div class="modal-body">
-						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"  method="POST">
+						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data"   method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -242,7 +243,7 @@ include "../include/session.php";
 
 		<!-- kode error cuy -->
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function validate()
 			{
 			var error="";
@@ -262,28 +263,28 @@ include "../include/session.php";
 			return false;
 			}
 
-			var uang = document.getElementById( "uang" );
-			if( uang.value == "" )
-			{
-			error = " Kamu harus isi form uang. ";
-			document.getElementById( "error_para" ).innerHTML = error;
-			return false;
-			}
+			// var uang = document.getElementById( "uang" );
+			// if( uang.value == "" )
+			// {
+			// error = " Kamu harus isi form uang. ";
+			// document.getElementById( "error_para" ).innerHTML = error;
+			// return false;
+			// }
 
-			var beras = document.getElementById( "beras" );
-			if( beras.value == "" )
-			{
-			error = " Kamu harus isi form beras. ";
-			document.getElementById( "error_para" ).innerHTML = error;
-			return false;
-			}
+			// var beras = document.getElementById( "beras" );
+			// if( beras.value == "" )
+			// {
+			// error = " Kamu harus isi form beras. ";
+			// document.getElementById( "error_para" ).innerHTML = error;
+			// return false;
+			// }
 			
 			else
 			{
 			return true;
 			}
 			}
-		</script>
+		</script> -->
 
 		
 		<!-- Modal Popup zakat Edit -->

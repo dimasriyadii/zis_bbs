@@ -15,4 +15,57 @@ if ($add = mysqli_query($connect, "INSERT INTO zakat_fitrah VALUES ('$id_zakatf'
 	}
 die ("Terdapat kesalahan : ". mysqli_error($connect));
 
+if ($nilai >= 9) {
+	echo 'Sangat Baik';
+} else if ($nilai < 9 && $nilai >= 7) {
+	echo 'Baik';
+} else if ($nilai < 7 && $nilai >= 5) {
+	echo 'Sedang';
+} else {
+	echo 'Kurang';
+}
+
+if (!empty($_POST["mail"])) {
+    echo "Yes, mail is set";    
+} else {  
+    echo "No, mail is not set";
+}
+
+// if($_POST['submit']){
+
+// }
+
+
+// if (!empty(($_POST["beras"]) OR ($_POST["uang"]))) {
+//     echo "Yes, mail is set";    
+// } else {  
+//     echo "No, mail is not set";
+// }
+
+// if (isset($_POST['uang']) OR isset($_POST['beras']))
+// {
+//    $uang=$_GET['uang'];
+//    $beras=$_GET['beras'];
+// }
+// else
+// {
+//    die("Maaf, anda harus mengakses halaman ini dari form.html");
+// }
+  
+// if(empty($uang) O)
+// {
+//    die("Maaf, anda harus mengisi nama");
+// }
+// else
+// {
+//    if (is_numeric($nama))
+//    {
+//       die("Maaf, nama harus berupa huruf");
+//    }
+//    else
+//    {
+//       echo "Nama: $nama <br /> Email: $email";
+//    }
+// }
+
 ?>

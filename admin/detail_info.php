@@ -14,8 +14,8 @@
 					$queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
 					$data1 = mysqli_fetch_array($queryinfo);
 					$data2 = mysqli_fetch_array($queryberas);
-					$data3 = mysqli_fetch_array($querypenerima);
-					$data4 = mysqli_fetch_array($queryberasp);
+					// $data3 = mysqli_fetch_array($querypenerima);
+					// $data4 = mysqli_fetch_array($queryberasp);
 
 					//tungitung
 					$hasil_uang = $data1['jumlah'] - $data3['uangp'];

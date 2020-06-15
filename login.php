@@ -42,9 +42,7 @@
 
 				<div class="text-right col-xs-4 ">
         <input name="login" type="submit" value="login" class="btn btn-primary btn-block btn-flat"></input>
-                  <div class="daftar">
-                    <div class=""><a href="#">Join!</a></div>
-                  </div>
+                  
 				</div>
 			  </div>
     </form>

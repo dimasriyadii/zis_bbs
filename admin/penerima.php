@@ -230,7 +230,7 @@ include "../include/session.php";
                   						<option value='belum'>Belum Dibayarkan</option>
 										</select>
 									</div>
-									</div>
+							</div>
 
 												
 									<div class="modal-footer">
