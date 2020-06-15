@@ -177,7 +177,7 @@ include "../include/session.php";
 					</div>
 					<!-- onsubmit="return validate()" -->
 					<div class="modal-body">
-						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data"   method="POST">
+						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"   method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -263,26 +263,100 @@ include "../include/session.php";
 			return false;
 			}
 
-			// var uang = document.getElementById( "uang" );
-			// if( uang.value == "" )
-			// {
-			// error = " Kamu harus isi form uang. ";
-			// document.getElementById( "error_para" ).innerHTML = error;
-			// return false;
-			// }
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " Kamu harus isi form uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
 
-			// var beras = document.getElementById( "beras" );
-			// if( beras.value == "" )
-			// {
-			// error = " Kamu harus isi form beras. ";
-			// document.getElementById( "error_para" ).innerHTML = error;
-			// return false;
-			// }
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " Kamu harus isi form beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
 			
 			else
 			{
 			return true;
 			}
+			}
+		</script> -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			var beras = document.getElementById( "beras" )
+			if( uang.value == "" && beras.value == "" )
+			{
+			error = " Adayang terlewat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			// if (beras.value == "" || uang.value == "") { 
+			// 	error = "Ada yang terlewat";
+			// 	document.getElementById("error_para").innerHTML = error;
+			// 	return false;
+			//  }
+
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
+		<!-- <script type="text/javascript">
+ 
+			function validate() {
+				var nama = document.getElementById("nama").value;
+				var alamat = document.getElementById("alamat").value;
+				var uang = document.getElementById("uang").value;
+				var beras = document.getElementById("beras").value;
+				if(nama=="" && alamat=="" && uang=="" && beras==""){
+					alert('silahkan isi!Nama:..'+'\n'+'silahkan isi!Kota:..'+'\n'+'silahkan isi!alamat:..'+'\n'+'silahkan isi!Pesan:..');
+				}
+				else if(nama==""){
+					alert('nama Harus diisi');
+				}
+				else if (alamat == "") {
+					alert("alamat");
+		
+				}
+				else if (uang == "") {
+					alert("uang");
+		
+				}
+				else if (beras == "") {
+					alert("beras");
+		
+				}
+		
+				else{
+				alert('Data berhasil ditambahkan');
+					}
+		
 			}
 		</script> -->
 

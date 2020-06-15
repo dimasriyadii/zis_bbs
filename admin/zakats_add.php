@@ -15,34 +15,34 @@ if ($add = mysqli_query($connect, "INSERT INTO zakat_fitrah VALUES ('$id_zakatf'
 	}
 die ("Terdapat kesalahan : ". mysqli_error($connect));
 
-if ($nilai >= 9) {
-	echo 'Sangat Baik';
-} else if ($nilai < 9 && $nilai >= 7) {
-	echo 'Baik';
-} else if ($nilai < 7 && $nilai >= 5) {
-	echo 'Sedang';
-} else {
-	echo 'Kurang';
-}
+// if ($nilai >= 9) {
+// 	echo 'Sangat Baik';
+// } else if ($nilai < 9 && $nilai >= 7) {
+// 	echo 'Baik';
+// } else if ($nilai < 7 && $nilai >= 5) {
+// 	echo 'Sedang';
+// } else {
+// 	echo 'Kurang';
+// }
 
-if (!empty($_POST["mail"])) {
-    echo "Yes, mail is set";    
-} else {  
-    echo "No, mail is not set";
-}
+// if (!empty($_POST["mail"])) {
+//     echo "Yes, mail is set";    
+// } else {  
+//     echo "No, mail is not set";
+// }
 
 // if($_POST['submit']){
 
 // }
 
 
-// if (!empty(($_POST["beras"]) OR ($_POST["uang"]))) {
-//     echo "Yes, mail is set";    
+// if (!empty($_POST["beras"])) {
+//     echo "Masukin Beras";    
 // } else {  
 //     echo "No, mail is not set";
 // }
 
-// if (isset($_POST['uang']) OR isset($_POST['beras']))
+// if (isset($_POST['uang']) || isset($_POST['beras']))
 // {
 //    $uang=$_GET['uang'];
 //    $beras=$_GET['beras'];
