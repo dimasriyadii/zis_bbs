@@ -9,7 +9,7 @@ $alamat 		= $_POST["alamat"];
 $uang 	        = $_POST["uang"];
 $beras			= $_POST["beras"];
 
-if ($add = mysqli_query($connect, "INSERT INTO zakat_fitrah VALUES ('$id_zakatf', '$tanggal', '$nama', '$alamat', '$uang', '$beras')")){
+if ($add = mysqli_query($connect, "INSERT INTO zakat VALUES ('$id_zakatf', '$tanggal', '$nama', '$alamat', '$uang', '$beras')")){
 		header("Location: zakats.php");
 		exit();
 	}

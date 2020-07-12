@@ -1,4 +1,4 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
@@ -42,20 +42,94 @@ include "../include/session.php";
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini ">
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
 <div class="wrapper">
 
 <header class="main-header">
-    <div class="pull-right hidden-xs"></div>
-    <strong><?php include "../include/header.php" ?></strong>
-</sidebar>
- </div>  
+  <!-- Logo -->
+  <div class="logo">
+<span class="logo-mini"><img src="../assets/images/logo.png" class="img-circle" alt="Logo" height="50" width="50"></span>
+<span class="logo-lg"><b>ZIS Babussalam</b></span>
+</div>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+	<img src="../assets/images/avatar0.jpg" class="user-image" alt="images">
+  <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
+                <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
+                <p>Welcome To ZIS Babussalam</p>
+             </li>
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <!-- <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div> -->
+                <div class="pull-right">
+                  <a href="../logout.php" class="btn btn-danger btn-danger">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>  
  
 <!-- Left side column. contains the logo and sidebar -->
-<sidebar class="main-sidebar">
-    <div class="pull-right hidden-xs"></div>
-    <strong><?php include "../include/sidebar.php" ?></strong>
-</sidebar>
- </div> 
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+        <p><?php echo $_SESSION['username']; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+            <div class="pull-left image">
+              <p></p>
+            </div>
+          </div><!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+          </ul>
+        </section>
+    <!-- /.sidebar -->
+  </aside>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -97,7 +171,7 @@ include "../include/session.php";
 						<h4 class="modal-title">Bayar sedekah</h4>
 					</div>
 					<div class="modal-body">
-						<form action="sedekah_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="sedekah_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"  method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -111,7 +185,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
@@ -121,7 +195,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="alamat" type="text" class="form-control" placeholder="Alamat" id="alamat"/>
 									</div>
 							</div>
 
@@ -131,7 +205,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
+										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp" id="jumlah"/>
 									</div>
 							   </div>
 							
@@ -144,10 +218,49 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+
+						<!-- id error -->
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- kode error cuy -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var jumlah = document.getElementById( "jumlah" );
+			if( jumlah.value == "" )
+			{
+			error = " Kamu harus isi form jumlah. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			else
+			{
+			return true;
+			}
+			}
+		</script>
 		
 		<!-- Modal Popup sedekah Edit -->
 		<div id="ModalEditSedekah" class="modal fade" tabindex="-1" role="dialog"></div>

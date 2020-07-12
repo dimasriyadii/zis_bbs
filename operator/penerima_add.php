@@ -11,7 +11,7 @@ $beras		    = $_POST["beras"];
 $status		    = $_POST["status"];
 
 
-if ($add = mysqli_query($connect, "INSERT INTO penerima VALUES ('$id_penerima', '$nama', '$kelurahan', '$rt', '$uang', '$beras', '$status')")){
+if ($add = mysqli_query($connect, "INSERT INTO tbl_penerima VALUES ('$id_penerima', '$nama', '$kelurahan', '$rt', '$uang', '$beras', '$status')")){
 		header("Location: penerima.php");
 		exit();
 	}

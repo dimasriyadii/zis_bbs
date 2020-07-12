@@ -11,7 +11,7 @@ $uang			= $_POST["uang"];
 $beras			= $_POST["beras"];
 $status			= $_POST["status"];
 
-if ($edit = mysqli_query($connect, "UPDATE penerima SET id_penerima='$id_penerima', 
+if ($edit = mysqli_query($connect, "UPDATE tbl_penerima SET id_penerima='$id_penerima', 
 nama='$nama', kelurahan='$kelurahan', rt='$rt', uang='$uang', beras='$beras', status='$status'  WHERE id_penerima='$id_penerima'")){
 		header("location: penerima.php");
 		exit();

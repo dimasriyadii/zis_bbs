@@ -1,11 +1,11 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Users | Babussalam</title>
+<title>Penerima | Babussalam</title>
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
@@ -44,9 +44,9 @@ include "../include/session.php";
 <body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">
 
-  <header class="main-header">
+<header class="main-header">
   <!-- Logo -->
-<div class="logo">
+  <div class="logo">
 <span class="logo-mini"><img src="../assets/images/logo.png" class="img-circle" alt="Logo" height="50" width="50"></span>
 <span class="logo-lg"><b>ZIS Babussalam</b></span>
 </div>
@@ -65,24 +65,25 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
-              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
+
+	<img src="../assets/images/avatar0.jpg" class="user-image" alt="images">
+  <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
 	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
                 <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome to ZIS Babussalam</p>
+                <p>Welcome To RekamMedis</p>
              </li>
               
               <!-- Menu Footer-->
               <li class="user-footer">
                 <!-- <div class="pull-left">
-                  <a href="#" class="btn btn-default     btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div> -->
                 <div class="pull-right">
-                  <a href="../logout.php" class="btn btn-danger btn-flat">Log out</a>
+                  <a href="../logout.php" class="btn btn-danger btn-danger">Log out</a>
                 </div>
               </li>
             </ul>
@@ -90,19 +91,42 @@ include "../include/session.php";
         </ul>
       </div>
     </nav>
-</header> 
- <!-- Left side column. contains the logo and sidebar -->
- <sidebar class="main-sidebar">
-    <div class="pull-right hidden-xs"></div>
-    <strong><?php include "../include/sidebar.php" ?></strong>
-</sidebar>
+  </header>  
+    <!-- Left side column. contains the logo and sidebar -->
+	<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+        <p><?php echo $_SESSION['username']; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+            <div class="pull-left image">
+              <p></p>
+            </div>
+          </div><!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+          </ul>
+        </section>
+    <!-- /.sidebar -->
+  </aside>
  </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Users
+            Data Penerima Zakat
           </h1>
           
         </section>
@@ -117,10 +141,13 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
+				
+				
+
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
-							include "detail_users.php";
+							include "detail_penerima.php";
 						?>
                   </table>
                 </div><!-- /.box-body -->
@@ -129,55 +156,83 @@ include "../include/session.php";
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup Users -->
+<!-- Modal Popup Zakat -->
 <div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Tambah User</h4>
+						<h4 class="modal-title">Penerima</h4>
 					</div>
 					<div class="modal-body">
-						<form action="users_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
-							<!-- <div class="form-group">
-								<label>Tanggal</label>
-								
-										<input name="tanggal" type="text" class="form-control" placeholder="YYYY/MM/DD"/>
-								
-							</div> -->
-
+						<form action="penerima_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"  method="POST">
+							
 							<div class="form-group">
 								<label>Nama</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
              				 <div class="form-group">
-								<label>Alamat</label>
+								<label>Kelurahan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="kelurahan" type="text" class="form-control" placeholder="Kelurahan" id="kelurahan" />
 									</div>
 							</div>
 
             				  <div class="form-group">
-								<label>Jumlah</label>
+								<label>RT</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
+										<input name="rt" type="text" class="form-control" placeholder="RT" id="rt" />
 									</div>
-							   </div>
-							
+							</div>
+
+              				<div class="form-group">
+								<label>Uang</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+                   						 <i class="fa fa-user"></i>
+										</div>
+										<input name="uang" type="text" class="form-control" placeholder="Uang Rp" id="uang" />
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label>Beras</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+                   						 <i class="fa fa-user"></i>
+										</div>
+										<input name="beras" type="text" class="form-control" placeholder="Beras Kg" id="beras" />
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label>Status</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-flag"></i>
+										</div>
+										<select name="status" class="form-control">
+										<option value='sudah'>Sudah Dibayarkan</option>
+                  						<option value='belum'>Belum Dibayarkan</option>
+										</select>
+									</div>
+							</div>
+
+												
 									<div class="modal-footer">
-								<button class="btn btn-success" type="submit">
+								<button class="btn btn-success" type="submit" name="simpan">
 									Add
 								</button>
 								<button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
@@ -185,13 +240,69 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!-- Modal Popup users Edit -->
-		<div id="ModalEditUsers" class="modal fade" tabindex="-1" role="dialog"></div>
+
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var name = document.getElementById( "nama" );
+			if( name.value == "" )
+			{
+			error = " You Have To Write Your Name. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var kelurahan = document.getElementById( "kelurahan" );
+			if( kelurahan.value == "" )
+			{
+			error = " You Have To Write Your Kelurahan. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var rt = document.getElementById( "rt" );
+			if( rt.value == "" )
+			{
+			error = " You Have To Write RT. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " You Have To Write Uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " You Have To Write Beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			var status = document.getElementById( "status" );
+			if( status.value == "" )
+			{
+			error = " You Have To Write Status. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
+		<!-- Modal Popup zakat Edit -->
+		<div id="ModalEditPenerima" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -218,20 +329,20 @@ include "../include/session.php";
 
 	</div><!-- ./wrapper -->
 
-			<!-- Javascript Edit--> 
+	<!-- Javascript Edit--> 
 	<script type="text/javascript">
 		$(document).ready(function () {
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_users");
+			var m = $(this).attr("id_penerima");
 				$.ajax({
-					url: "users_modal_edit.php",
+					url: "penerima_modal_edit.php",
 					type: "GET",
-					data : {id_users: m,},
+					data : {id_penerima: m,},
 					success: function (ajaxData){
-					$("#ModalEditUsers").html(ajaxData);
-					$("#ModalEditUsers").modal('show',{backdrop: 'true'});
+					$("#ModalEditPenerima").html(ajaxData);
+					$("#ModalEditPenerima").modal('show',{backdrop: 'true'});
 					}
 				});
 			});
@@ -248,4 +359,3 @@ include "../include/session.php";
 			document.getElementById('delete_link').setAttribute('href', delete_url);
 		}
 	</script>
- 

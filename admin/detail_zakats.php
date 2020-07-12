@@ -22,12 +22,12 @@
 
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah where tanggal='$tgl'");
+						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat where tanggal='$tgl'");
 					}else{
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat_fitrah");
+						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat");
 					}
 						// $queryzakat = mysqli_query ($connect, "SELECT id_zakatf, tanggal, nama, alamat, uang, beras 
-						// FROM zakat_fitrah  where tanggal='$tanggal'");
+						// FROM zakat  where tanggal='$tanggal'");
 						
 						// if($queryzakat == false){
 						// 	die ("Terjadi Kesalahan : ". mysqli_error($connect));

@@ -21,9 +21,9 @@
 
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from penerima");
+						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from tbl_penerima");
 					}else{
-						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from penerima");
+						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from tbl_penerima");
 					}
 						
 						while ($penerima = mysqli_fetch_array ($sql)){
@@ -43,11 +43,10 @@
 									<td>$penerima[kelurahan]</td>
 									<td>$penerima[rt]</td>
 									<td>Rp. $angka_format</td>
-									<td>$penerima[beras] Kilogram</td>
+									<td>$penerima[beras]</td>
 									<td>$penerima[status]</td>
 									
 									<td>
-										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"penerima_delete.php?id_penerima=$penerima[id_penerima]\")'>Delete</a>
 									</td>
 								</tr>";

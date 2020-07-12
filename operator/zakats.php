@@ -1,4 +1,4 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
@@ -42,11 +42,20 @@ include "../include/session.php";
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini ">
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
+	?>
 <div class="wrapper">
 
-  <header class="main-header">
+<header class="main-header">
   <!-- Logo -->
-<div class="logo">
+  <div class="logo">
 <span class="logo-mini"><img src="../assets/images/logo.png" class="img-circle" alt="Logo" height="50" width="50"></span>
 <span class="logo-lg"><b>ZIS Babussalam</b></span>
 </div>
@@ -65,24 +74,25 @@ include "../include/session.php";
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../assets/images/avatar0.jpg" class="user-image" alt="Foto">
-              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
+
+	<img src="../assets/images/avatar0.jpg" class="user-image" alt="images">
+  <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
 	              <img src="../assets/images/avatar0.jpg" class="img-circle" alt="images">
                 <p style="text-transform:capitalize;">Hi <?php echo $_SESSION['username'];?></p>
-                <p>Welcome to ZIS Babussalam</p>
+                <p>Welcome To RekamMedis</p>
              </li>
               
               <!-- Menu Footer-->
               <li class="user-footer">
                 <!-- <div class="pull-left">
-                  <a href="#" class="btn btn-default     btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div> -->
                 <div class="pull-right">
-                  <a href="../logout.php" class="btn btn-danger btn-flat">Log out</a>
+                  <a href="../logout.php" class="btn btn-danger btn-danger">Log out</a>
                 </div>
               </li>
             </ul>
@@ -90,11 +100,36 @@ include "../include/session.php";
         </ul>
       </div>
     </nav>
-</header>  <!-- Left side column. contains the logo and sidebar -->
-<sidebar class="main-sidebar">
-    <div class="pull-right hidden-xs"></div>
-    <strong><?php include "../include/sidebar.php" ?></strong>
-</sidebar>
+  </header>  
+    <!-- Left side column. contains the logo and sidebar -->
+	<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../assets/images/avatar0.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+        <p><?php echo $_SESSION['username']; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+            <div class="pull-left image">
+              <p></p>
+            </div>
+          </div><!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
+            <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
+            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+
+          </ul>
+        </section>
+    <!-- /.sidebar -->
+  </aside>
  </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -116,6 +151,9 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
+				
+				
+
                   <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php
@@ -136,8 +174,9 @@ include "../include/session.php";
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Bayar Zakat</h4>
 					</div>
+					<!-- onsubmit="return validate()" -->
 					<div class="modal-body">
-						<form action="zakats_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="zakats_add.php" name="validasi_form" enctype="multipart/form-data" onsubmit="return validate()"   method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -151,7 +190,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    							 <i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
+										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
 									</div>
 							</div>
 
@@ -161,7 +200,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
+										<input name="alamat" type="text" class="form-control" placeholder="Alamat"id="alamat"/>
 									</div>
 							</div>
 
@@ -171,7 +210,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                     					<i class="fa fa-user"></i>
 										</div>
-										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"/>
+										<input name="uang" type="text" class="form-control" placeholder="Uang Rp"id="uang"/>
 									</div>
 							</div>
 
@@ -181,7 +220,7 @@ include "../include/session.php";
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"/>
+										<input name="beras" type="text" class="form-control" placeholder="Beras Kg"id="beras"/>
 									</div>
 							</div>
 									
@@ -194,10 +233,132 @@ include "../include/session.php";
 								</button>
 							</div>
 						</form>
+						<p id="error_para" ></p>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<!-- kode error cuy -->
+
+		<!-- <script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " Kamu harus isi form uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " Kamu harus isi form beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			
+			else
+			{
+			return true;
+			}
+			}
+		</script> -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			var beras = document.getElementById( "beras" )
+			if( uang.value == "" && beras.value == "" )
+			{
+			error = " Adayang terlewat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			// if (beras.value == "" || uang.value == "") { 
+			// 	error = "Ada yang terlewat";
+			// 	document.getElementById("error_para").innerHTML = error;
+			// 	return false;
+			//  }
+
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
+		<!-- <script type="text/javascript">
+ 
+			function validate() {
+				var nama = document.getElementById("nama").value;
+				var alamat = document.getElementById("alamat").value;
+				var uang = document.getElementById("uang").value;
+				var beras = document.getElementById("beras").value;
+				if(nama=="" && alamat=="" && uang=="" && beras==""){
+					alert('silahkan isi!Nama:..'+'\n'+'silahkan isi!Kota:..'+'\n'+'silahkan isi!alamat:..'+'\n'+'silahkan isi!Pesan:..');
+				}
+				else if(nama==""){
+					alert('nama Harus diisi');
+				}
+				else if (alamat == "") {
+					alert("alamat");
+		
+				}
+				else if (uang == "") {
+					alert("uang");
+		
+				}
+				else if (beras == "") {
+					alert("beras");
+		
+				}
+		
+				else{
+				alert('Data berhasil ditambahkan');
+					}
+		
+			}
+		</script> -->
+
 		
 		<!-- Modal Popup zakat Edit -->
 		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>

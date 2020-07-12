@@ -5,6 +5,7 @@
 					<input type="date" name="tanggal">
 					<a href="#"><button class="btn btn-warning" type="submit" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>
+			
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
@@ -31,23 +32,17 @@
 						//}
 						while ($sedekah = mysqli_fetch_array ($querysedekah)){
 							$no++;
-					?>
-
-
-						<?php
-
-							$angka = $sedekah['jumlah'];
-							$angka_format = number_format($angka,2,",",".");
-
+							
 							echo "
 								<tr>
 									<td>$no</td>
 									<td>$sedekah[tanggal]</td>
 									<td>$sedekah[nama]</td>
 									<td>$sedekah[alamat]</td>
-									<td>Rp. $angka_format</td>
+									<td>$sedekah[jumlah]</td>
 
 									<td>
+										<a href='#' class='open_modal btn btn-primary' id_sedekah='$sedekah[id_sedekah]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"sedekah_delete.php?id_sedekah=$sedekah[id_sedekah]\")'>Delete</a>
 										<a href='cetaksedekah.php?id_sedekah=$sedekah[id_sedekah]' target=_blank  class='btn btn-success'>Print</a>
 									</td>
