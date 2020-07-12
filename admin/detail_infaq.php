@@ -1,4 +1,8 @@
-<thead>
+
+
+
+
+	<thead>
 			<form method="get">
 					<label>PILIH TANGGAL   </label>
 					<input type="date" name="tanggal">
@@ -33,7 +37,7 @@
 						?>
 
 						<?php
-
+						$total = 0; 
 							$angka = $infaq['jumlah'];
 							$angka_format = number_format($angka,2,",",".");
 							
@@ -44,7 +48,6 @@
 									<td>$infaq[nama]</td>
 									<td>$infaq[alamat]</td>
 									<td>Rp. $angka_format</td>
-
 									<td>
 										<a href='#' class='open_modal btn btn-primary' id_infaq='$infaq[id_infaq]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"infaq_delete.php?id_infaq=$infaq[id_infaq]\")'>Delete</a>

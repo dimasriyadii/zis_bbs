@@ -82,3 +82,27 @@
 								</tr>";
 					?>
 </tbody>
+
+<thead>
+      <tr>
+      </tr>
+</thead>
+    <tbody>
+	<?php
+					$queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM sedekah");
+					$data2 = mysqli_fetch_array($queryjumlah);
+
+					//tungitung
+					?>
+					<?php
+								$angka = $data2['jumlah'];
+								$angka_format2 = number_format($angka,2,",",".");
+								echo "
+								<tr>
+								<td>Sedekah</td>
+								<td>Rp. $angka_format2</td>
+								<td>-</td>
+								</tr>";
+					?>
+</tbody>
+

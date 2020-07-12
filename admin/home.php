@@ -9,6 +9,28 @@ include "../include/session.php";
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
   <!-- jQuery 2.1.4 -->
@@ -127,7 +149,18 @@ include "../include/session.php";
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li class="active"><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-book"></i> <span>Infaq</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+                <ul class="treeview-menu">
+                  <li> <a href="infaq.php"><i class="fa fa-book"></i><span>Data Infaq</span></a></li>
+                  <li><a href="#"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
+                </ul>
+            </li>
+
             <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
             <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
@@ -150,29 +183,208 @@ include "../include/session.php";
           
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-body">
-                        <div class="table-responsive">
-                      <table id="data" class="table table-bordered table-striped table-hover">
-                        <div class="table-responsive">
-                      <table id="data" class="table table-bordered table-striped table-hover">
-                        
-                        <h3> Laporan</h3> 
-                        <?php
-                          include "detail_info.php";
+<!-- Main content -->
+<section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                  <?php
+                        $queryberas = mysqli_query($connect,"SELECT SUM(beras) AS jumlah FROM zakat");
+                        $databeras = mysqli_fetch_array($queryberas);
                         ?>
-                      </table>
-                        </div>
-                        
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </section><!-- /.content -->
+                        <?php
+                                  $angka = $databeras['jumlah'];
+                                  // $angka_format1 = number_format($angka,2,",",".");
+                              echo "
+                                    <h3>$angka<sup style='font-size: 20px'>Kilogram</sup></h3>
+                                    ";
+                  ?>
+                <p>Zakat Fitrah (Beras)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                    $queryjumlah = mysqli_query($connect,"SELECT SUM(uang) AS jumlah FROM zakat");
+                    $data1 = mysqli_fetch_array($queryjumlah);
+                    ?>
+                    <?php
+                              $angka = $data1['jumlah'];
+                              $angka_format1 = number_format($angka,2,",",".");
+                          echo "
+                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></sup></h3>
+                                ";
+                ?>
+                <p>Zakat Fitrah (Uang)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                    $queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq");
+                    $data1 = mysqli_fetch_array($queryjumlah);
+                    ?>
+                    <?php
+                              $angka = $data1['jumlah'];
+                              $angka_format1 = number_format($angka,2,",",".");
+                          echo "
+                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></sup></h3>
+                                ";
+                ?>
+
+                <p>Infaq</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+          <!-- ./col -->
+            <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                    $queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq_pengeluaran");
+                    $data1 = mysqli_fetch_array($queryjumlah);
+                    ?>
+                    <?php
+                              $angka = $data1['jumlah'];
+                              $angka_format1 = number_format($angka,2,",",".");
+                          echo "
+                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></sup></h3>
+                                ";
+                ?>
+
+                <p>Data Pengeluaran Infaq</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlinfaq = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(jumlah) AS pengeluaran FROM infaq_pengeluaran");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryinfaq = mysqli_fetch_array($sqlinfaq);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldoinfaq = $queryinfaq['jumlah'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
+                  $hasil_beras = $data2['beras'] - $data4['berasp'];
+                  ?>
+                  <?php
+                  $angka = $saldoinfaq;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>Rp. $angka_format</h3>";
+					      ?>
+
+                <p>Sisa Infaq</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <?php
+                  $queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM sedekah");
+                  $data2 = mysqli_fetch_array($queryjumlah);
+
+                  //tungitung
+                  ?>
+                  <?php
+                        $angka = $data2['jumlah'];
+                        $angka_format2 = number_format($angka,2,",",".");
+                        echo "
+                        <h3>Rp. $angka_format2</h3>";
+                ?>
+
+                <p>Sedekah</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+              <?php
+                  $querypenerima = mysqli_query($connect,"SELECT COUNT(*) AS jumlah FROM penerima");
+                  $dd = mysqli_fetch_array($querypenerima);
+
+                  //tungitung
+                  ?>
+                  <?php
+                        $angka = $dd['jumlah'];
+                        echo "
+                        <h3>$angka</h3>";
+                ?>
+
+
+                <p>Penerima</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+      </div>
+</section>
         
 		
 <!-- Modal Popup sedekah -->

@@ -123,7 +123,17 @@ include "../include/session.php";
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li class="active"><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
+			<li class="treeview">
+              <a href="#"><i class="fa fa-book"></i> <span>Infaq</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+                <ul class="treeview-menu">
+                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq</span></a></li>
+                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
+                </ul>
+            </li>
             <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
             <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
