@@ -40,7 +40,7 @@ while($penerima = mysqli_fetch_array($querypenerima)) {
 					</div>
 					<div class="modal-body">
 						<form action="penerima_edit.php" name="modal_popup" enctype="multipart/form-data" method="POST">
-						<div class="form-group">
+						<!-- <div class="form-group">
 								<label>Tanggal</label>
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -49,35 +49,82 @@ while($penerima = mysqli_fetch_array($querypenerima)) {
 										<input name="id_penerima" type="hidden" class="form-control" value="<?php echo $penerima["id_penerima"]; ?>" readonly />
 										<input name="tanggal" type="text" class="form-control" value="<?php echo $penerima["tanggal"]; ?>" readonly />
 									</div>
-							</div>
+							</div> -->
+
 							<div class="form-group">
 								<label>Nama</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
 										<input name="nama" type="text" class="form-control" value="<?php echo $penerima["nama"]; ?>"/>
 									</div>
 							</div>
+
 							<div class="form-group">
-								<label>Alamat</label>
+								<label>Kelurahan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" value="<?php echo $penerima["alamat"]; ?>"/>
+										<select name="kelurahan" class="form-control">
+										<option value='Penengahan'>Penengahan</option>
+										<option value='Penengahan Raya'>Penengahan Raya</option>
+                  						<option value='Lainnya'>Lainnya</option>
+										</select>
+									</div>
+									</div>
+
+							<div class="form-group">
+								<label>RT</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</div>
+										<select name="rt" class="form-control">
+										<option value='1'>1</option>
+										<option value='2'>2</option>
+                  						<option value='3'>3</option>
+                  						<option value='4'>4</option>
+                  						<option value='5'>5</option>
+                  						<option value='6'>6</option>
+                  						<option value='7'>7</option>
+                  						<option value='8'>8</option>
+                  						<option value='9'>9</option>										  
+                  						<option value='10'>10</option>
+										</select>
+									</div>
+									</div>
+
+							<div class="form-group">
+								<label>Uang</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</div>
+										<input name="uang" type="text" class="form-control" value="Rp. <?php echo $penerima["uang"]; ?>"/>
 									</div>
 							</div>
+
 							<div class="form-group">
-								<label>Jumlah</label>
+								<label>Beras</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="jumlah" type="text" class="form-control" value="<?php echo $penerima["jumlah"]; ?>"/>
+										<input name="beras" type="text" class="form-control" value="<?php echo $penerima["beras"]; ?> Kg"/>
 									</div>
 							</div>
 							
+							<div class="form-group">
+								<label>Status</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</div>
+										<input name="status" type="text" class="form-control" value="<?php echo $penerima["status"]; ?>"/>
+									</div>
+							</div>
 									
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">

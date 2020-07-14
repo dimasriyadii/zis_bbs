@@ -47,7 +47,7 @@
 									<td>$penerima[status]</td>
 									
 									<td>
-										<a href='#' class='open_modal btn btn-primary' id_zakatf='$zakat[id_zakatf]'>Edit</a> 
+										<a href='#' class='open_modal btn btn-primary' id_penerima='$penerima[id_penerima]'>Edit</a> 
 										<a href='#' class='btn btn-danger' onClick='confirm_delete(\"penerima_delete.php?id_penerima=$penerima[id_penerima]\")'>Delete</a>
 									</td>
 								</tr>";

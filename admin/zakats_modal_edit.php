@@ -54,11 +54,30 @@ while($zakat = mysqli_fetch_array($queryzakat)) {
 								<label>Nama</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
 										<input name="nama" type="text" class="form-control" value="<?php echo $zakat["nama"]; ?>"/>
 									</div>
-							</div>
+
+							<div class="form-group">
+								<label>Alamat</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+										<i class="fa fa-user"></i>
+										</div>
+										<select name="alamat" class="form-control">
+										<option value='Bandar Lampung'>Bandar Lampung</option>
+										<option value='Penengahan'>Penengahan</option>
+										<option value='Penengahan Raya'>Penengahan Raya</option>
+                  						<option value='Kedaton'>Kedaton</option>
+										<option value='Rajabasa'>Rajabasa</option>
+										<option value='Pahoman'>Pahoman</option>
+                    					<option value='Sukarame'>Sukarame</option>
+										</select>
+									</div>
+								</div>
+
+							<!-- </div>
 							<div class="form-group">
 								<label>Alamat</label>
 									<div class="input-group">
@@ -67,12 +86,13 @@ while($zakat = mysqli_fetch_array($queryzakat)) {
 										</div>
 										<input name="alamat" type="text" class="form-control" value="<?php echo $zakat["alamat"]; ?>"/>
 									</div>
-							</div>
+							</div> -->
+							
 							<div class="form-group">
 								<label>Uang</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
 										<input name="uang" type="text" class="form-control" value="<?php echo $zakat["uang"]; ?>"/>
 									</div>
@@ -81,24 +101,12 @@ while($zakat = mysqli_fetch_array($queryzakat)) {
 								<label>Beras</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-card"></i>
+											<i class="fa fa-user"></i>
 										</div>
 										<input name="beras" type="text" class="form-control" value="<?php echo $zakat["beras"]; ?>"/>
 									</div>
 							</div>
-							<div class="form-group">
-								<label>Level</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-flag"></i>
-										</div>
-										<select name="level" class="form-control">
-										<option value='admin'>admin</option>
-                    					<option value='dokter'>dokter</option>
-                    					<option value='operator'>operator</option>
-										</select>
-									</div>
-									</div>
+							
 									
 									<div class="modal-footer">
 								<button class="btn btn-success" type="submit">

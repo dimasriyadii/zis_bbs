@@ -2,9 +2,9 @@
 
 include "../include/connect.php";
 
-$id_infaq	= $_GET["id_infaq"];
+$id_pengeluaran	= $_GET["id_pengeluaran"];
 
-$queryinfaq = mysqli_query($connect, "SELECT * FROM infaq WHERE id_infaq='$id_infaq'");
+$queryinfaq = mysqli_query($connect, "SELECT * FROM infaq_pengeluaran WHERE id_pengeluaran='$id_pengeluaran'");
 if($queryinfaq == false){
 	die ("Terjadi Kesalahan : ". mysqli_error($connect));
 }
@@ -14,7 +14,7 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 	<script src="../assets/plugins/daterangepicker/moment.min.js"></script>
 	<script src="../assets/plugins/daterangepicker/daterangepicker.js"></script>
 	
-	<!-- page script -->
+	<!-- page script
     <script>
       $(function () {	
 		// Daterange Picker
@@ -24,7 +24,7 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 			  format: 'YYYY-MM-DD'
 		  });
       });
-    </script>
+    </script> -->
 
 
 	<!-- Modal Popup infaq Edit -->
@@ -39,50 +39,51 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 						<h4 class="modal-title">Edit infaq</h4>
 					</div>
 					<div class="modal-body">
-						<form action="infaq_edit.php" name="modal_popup" enctype="multipart/form-data" method="POST">
+						<form action="infaq_pengeluaran_edit.php" name="modal_popup" enctype="multipart/form-data" method="POST">
 						<div class="form-group">
 								<label>Tanggal</label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-user"></i>
 										</div>
-										<input name="id_infaq" type="hidden" class="form-control" value="<?php echo $infaq["id_infaq"]; ?>" readonly />
+										<input name="id_pengeluaran" type="hidden" class="form-control" value="<?php echo $infaq["id_pengeluaran"]; ?>" readonly />
 										<input name="tanggal" type="text" class="form-control" value="<?php echo $infaq["tanggal"]; ?>" readonly />
-									</div>
-							</div>
-							<div class="form-group">
-								<label>Nama</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-id-user"></i>
-										</div>
-										<input name="nama" type="text" class="form-control" value="<?php echo $infaq["nama"]; ?>"/>
 									</div>
 							</div>
 
 							<div class="form-group">
-								<label>Alamat</label>
+								<label>Keperluan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-										<i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<select name="alamat" class="form-control">
-										<option value='Bandar Lampung'>Bandar Lampung</option>
-										<option value='Penengahan'>Penengahan</option>
-										<option value='Penengahan Raya'>Penengahan Raya</option>
-                  						<option value='Kedaton'>Kedaton</option>
-										<option value='Rajabasa'>Rajabasa</option>
-										<option value='Pahoman'>Pahoman</option>
-                    					<option value='Sukarame'>Sukarame</option>
+										<select name="keperluan" class="form-control">
+										<option value='Khatib'>Khatib</option>
+										<option value='Kajian Rabu'>Kajian Rabu</option>
+										<option value='Kajian Minggu'>Kajian Minggu</option>
+                    					<option value='Kebersihan'>Kebersihan</option>
+                    					<option value='Listrik'>Listrik</option>
+                    					<option value='Air'>Air</option>
+                    					<option value='Lainnya'>Lainnya</option>
 										</select>
 									</div>
-								</div>
-							
+									</div>
+
+							<!-- <div class="form-group">
+								<label>Keperluan</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-id-card"></i>
+										</div>
+										<input keperluan="keperluan" type="text" class="form-control" value="<?php echo $infaq["keperluan"]; ?>"/>
+									</div>
+							</div> -->
+												
 							<div class="form-group">
 								<label>Jumlah</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-											<i class="fa fa-id-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
 										<input name="jumlah" type="text" class="form-control" value="<?php echo $infaq["jumlah"]; ?>"/>
 									</div>

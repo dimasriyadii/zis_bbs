@@ -109,14 +109,25 @@ include "../include/session.php";
               <p></p>
             </div>
           </div><!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+           <ul class="sidebar-menu">
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-            <li><a href="infaq.php"><i class="fa fa-book"></i><span>Infaq</span></a></li>
-            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-            <li class="active"><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+			<li class="treeview">
+              <a href="#"><i class="fa fa-book"></i> <span>Infaq / Sedekah</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+                <ul class="treeview-menu">
+                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq / Sedekah</span></a></li>
+                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
+                </ul>
+            </li>
+            <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+
 
           </ul>
         </section>
@@ -179,25 +190,40 @@ include "../include/session.php";
 									</div>
 							</div>
 
-             				 <div class="form-group">
+							<div class="form-group">
 								<label>Kelurahan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="kelurahan" type="text" class="form-control" placeholder="Kelurahan" id="kelurahan" />
+										<select name="kelurahan" class="form-control">
+										<option value='Penengahan'>Penengahan</option>
+										<option value='Penengahan Raya'>Penengahan Raya</option>
+                  						<option value='Lainnya'>Lainnya</option>
+										</select>
 									</div>
-							</div>
+									</div>
 
-            				  <div class="form-group">
+									<div class="form-group">
 								<label>RT</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                    					<i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="rt" type="text" class="form-control" placeholder="RT" id="rt" />
+										<select name="rt" class="form-control">
+										<option value='1'>1</option>
+										<option value='2'>2</option>
+                  						<option value='3'>3</option>
+                  						<option value='4'>4</option>
+                  						<option value='5'>5</option>
+                  						<option value='6'>6</option>
+                  						<option value='7'>7</option>
+                  						<option value='8'>8</option>
+                  						<option value='9'>9</option>										  
+                  						<option value='10'>10</option>
+										</select>
 									</div>
-							</div>
+									</div>
 
               				<div class="form-group">
 								<label>Uang</label>

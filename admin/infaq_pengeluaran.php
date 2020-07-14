@@ -119,24 +119,25 @@ include "../include/session.php";
               <p></p>
             </div>
           </div><!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+		  <ul class="sidebar-menu">
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
 			<li class="treeview">
-              <a href="#"><i class="fa fa-book"></i> <span>Infaq</span>
+              <a href="#"><i class="fa fa-book"></i> <span>Infaq / Sedekah</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
                 <ul class="treeview-menu">
-                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq</span></a></li>
+                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq / Sedekah</span></a></li>
                   <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
                 </ul>
             </li>
-            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+            <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+
 
           </ul>
         </section>
@@ -180,10 +181,10 @@ include "../include/session.php";
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Bayar Infaq</h4>
+						<h4 class="modal-title">Pengeluaran</h4>
 					</div>
 					<div class="modal-body">
-						<form action="infaq_add.php" name="validasi_form" enctype="multipart/form-data"  onsubmit="return validate()"  method="POST">
+						<form action="infaq_pengeluaran_add.php" name="validasi_form" enctype="multipart/form-data"  onsubmit="return validate()"  method="POST">
 							<!-- <div class="form-group">
 								<label>Tanggal</label>
 								
@@ -192,24 +193,32 @@ include "../include/session.php";
 							</div> -->
 
 							<div class="form-group">
-								<label>Nama</label>
+								<label>Keperluan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                   							 <i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama" id="nama"/>
+										<select name="keperluan" class="form-control">
+										<option value='Khatib'>Khatib</option>
+										<option value='Kajian Rabu'>Kajian Rabu</option>
+										<option value='Kajian Minggu'>Kajian Minggu</option>
+                  						<option value='Kebersihan'>Kebersihan</option>
+										<option value='Listrik'>Listrik</option>
+										<option value='Air'>Air</option>
+                    					<option value='Lainnya'>Lainnya</option>
+										</select>
 									</div>
-							</div>
+									</div>
 
-             				 <div class="form-group">
-								<label>Alamat</label>
+             				 <!-- <div class="form-group">
+								<label>Keperluan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
                    						 <i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat" id="alamat"/>
+										<input name="keperluan" type="text" class="form-control" placeholder="Keperluan" id="keperluan"/>
 									</div>
-							</div>
+							</div> -->
 
             				  <div class="form-group">
 								<label>Jumlah</label>
@@ -244,22 +253,14 @@ include "../include/session.php";
 			function validate()
 			{
 			var error="";
-			var nama = document.getElementById( "nama" );
-			if( nama.value == "" )
+			var keperluan = document.getElementById( "keperluan" );
+			if( keperluan.value == "" )
 			{
-			error = " Kamu harus isi form nama. ";
+			error = " Kamu harus isi form keperluan. ";
 			document.getElementById( "error_para" ).innerHTML = error;
 			return false;
 			}
-
-			var alamat = document.getElementById( "alamat" );
-			if( alamat.value == "" )
-			{
-			error = " Kamu harus isi form alamat ";
-			document.getElementById( "error_para" ).innerHTML = error;
-			return false;
-			}
-
+			
 			var jumlah = document.getElementById( "jumlah" );
 			if( jumlah.value == "" )
 			{
@@ -309,11 +310,11 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_infaq");
+			var m = $(this).attr("id_pengeluaran");
 				$.ajax({
-					url: "infaq_modal_edit.php",
+					url: "infaq_pengeluaran_modal_edit.php",
 					type: "GET",
-					data : {id_infaq: m,},
+					data : {id_pengeluaran: m,},
 					success: function (ajaxData){
 					$("#ModalEditInfaq").html(ajaxData);
 					$("#ModalEditInfaq").modal('show',{backdrop: 'true'});

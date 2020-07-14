@@ -124,18 +124,18 @@ include "../include/session.php";
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
 			<li class="treeview">
-              <a href="#"><i class="fa fa-book"></i> <span>Infaq</span>
+              <a href="#"><i class="fa fa-book"></i> <span>Infaq / Sedekah</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
                 <ul class="treeview-menu">
-                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq</span></a></li>
+                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq / Sedekah</span></a></li>
                   <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
                 </ul>
             </li>
-            <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li>
-            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima</span></a></li>
+            <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
+            <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
 
           </ul>
@@ -147,7 +147,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Infaq
+            Data Infaq / Sedekah
           </h1>
           
         </section>
@@ -201,15 +201,23 @@ include "../include/session.php";
 									</div>
 							</div>
 
-             				 <div class="form-group">
+							<div class="form-group">
 								<label>Alamat</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat" id="alamat"/>
+										<select name="alamat" class="form-control">
+										<option value='Bandar Lampung'>Bandar Lampung</option>
+										<option value='Penengahan'>Penengahan</option>
+										<option value='Penengahan Raya'>Penengahan Raya</option>
+                  						<option value='Kedaton'>Kedaton</option>
+										<option value='Rajabasa'>Rajabasa</option>
+										<option value='Pahoman'>Pahoman</option>
+                    					<option value='Sukarame'>Sukarame</option>
+										</select>
 									</div>
-							</div>
+									</div>
 
             				  <div class="form-group">
 								<label>Jumlah</label>
