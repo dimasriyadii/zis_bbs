@@ -21,9 +21,13 @@
 					$no = 0;
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$queryinfaq = mysqli_query($connect,"SELECT * FROM infaq_pengeluaran WHERE tanggal='$tgl'");
+						$queryinfaq = mysqli_query($connect,"SELECT infaq_pengeluaran.id_pengeluaran,
+						infaq_pengeluaran.tanggal, infaq_pengeluaran.jumlah,
+						keperluan.keperluan FROM infaq_pengeluaran INNER JOIN keperluan ON infaq_pengeluaran.id_keperluan = keperluan.id_keperluan WHERE tanggal='$tgl'");
 					}else{
-						$queryinfaq = mysqli_query($connect,"SELECT * FROM infaq_pengeluaran");
+						$queryinfaq = mysqli_query($connect,"SELECT infaq_pengeluaran.id_pengeluaran,
+						infaq_pengeluaran.tanggal, infaq_pengeluaran.jumlah,
+						keperluan.keperluan FROM infaq_pengeluaran INNER JOIN keperluan ON infaq_pengeluaran.id_keperluan = keperluan.id_keperluan");
 					}
 						while ($infaq = mysqli_fetch_array ($queryinfaq)){
 							$no++;

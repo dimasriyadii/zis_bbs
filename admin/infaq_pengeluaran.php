@@ -192,33 +192,41 @@ include "../include/session.php";
 								
 							</div> -->
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>Keperluan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-user"></i>
 										</div>
 										<select name="keperluan" class="form-control">
-										<option value='Khatib'>Khatib</option>
-										<option value='Kajian Rabu'>Kajian Rabu</option>
-										<option value='Kajian Minggu'>Kajian Minggu</option>
-                  						<option value='Kebersihan'>Kebersihan</option>
-										<option value='Listrik'>Listrik</option>
-										<option value='Air'>Air</option>
-                    					<option value='Lainnya'>Lainnya</option>
+										<?php
+											$querykeperluan = "SELECT * FROM keperluan";
+											$query = mysqli_query ($connect, $querykeperluan);
+											while ( $keperluan = mysqli_fetch_array($query )) {
+												?>
+												<option value="<?=$keperluan['id_keperluan']?>"><?=$keperluan['id_keperluan']?></option>
+												<?php
+											}
+										?>
 										</select>
 									</div>
-									</div>
+									</div> -->
 
-             				 <!-- <div class="form-group">
+									<div class="form-group">
 								<label>Keperluan</label>
 									<div class="input-group">
 										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
+											<i class="fa fa-user"></i>
 										</div>
-										<input name="keperluan" type="text" class="form-control" placeholder="Keperluan" id="keperluan"/>
+										<select name="keperluan" class="form-control">
+										<option value='1'>Khatib</option>
+										<option value='2'>Kajian Rabu</option>
+										<option value='3'>Kajian Minggu</option>
+                  						<option value='4'>Kebersihan</option>
+										<option value='5'>Air</option>
+										</select>
 									</div>
-							</div> -->
+									</div>
 
             				  <div class="form-group">
 								<label>Jumlah</label>

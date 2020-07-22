@@ -203,7 +203,7 @@ include "../include/session.php";
                                     <h3>$angka<sup style='font-size: 20px'>Kilogram</sup></h3>
                                     ";
                   ?>
-                <p>Zakat Fitrah (Beras)</p>
+                <p>Zakat(Beras)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -227,7 +227,7 @@ include "../include/session.php";
                                 <h3>Rp. $angka_format1<sup style='font-size: 20px'></sup></h3>
                                 ";
                 ?>
-                <p>Zakat Fitrah (Uang)</p>
+                <p>Zakat (Uang)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

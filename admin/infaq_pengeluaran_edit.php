@@ -5,7 +5,7 @@ include "../include/connect.php";
 
 $id_pengeluaran = $_POST["id_pengeluaran"];
 $tanggal	 	= $_POST["tanggal"];
-$keperluan	  `	= $_POST["keperluan"];
+$keperluan	  	= $_POST["keperluan"];
 $jumlah 	    = $_POST["jumlah"];
 
 if ($edit = mysqli_query($connect, "UPDATE infaq_pengeluaran SET id_pengeluaran='$id_pengeluaran', 

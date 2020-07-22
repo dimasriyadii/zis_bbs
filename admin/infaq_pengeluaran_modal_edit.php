@@ -58,13 +58,11 @@ while($infaq = mysqli_fetch_array($queryinfaq)) {
 											<i class="fa fa-user"></i>
 										</div>
 										<select name="keperluan" class="form-control">
-										<option value='Khatib'>Khatib</option>
-										<option value='Kajian Rabu'>Kajian Rabu</option>
-										<option value='Kajian Minggu'>Kajian Minggu</option>
-                    					<option value='Kebersihan'>Kebersihan</option>
-                    					<option value='Listrik'>Listrik</option>
-                    					<option value='Air'>Air</option>
-                    					<option value='Lainnya'>Lainnya</option>
+										<option value='1'>Khatib</option>
+										<option value='2'>Kajian Rabu</option>
+										<option value='3'>Kajian Minggu</option>
+                  						<option value='4'>Kebersihan</option>
+										<option value='5'>Air</option>
 										</select>
 									</div>
 									</div>

@@ -27,7 +27,7 @@ $pdf->Image('kop.jpg',10,10,189);
 // Memberikan space kebawah agar tidak terlalu rapat
 $pdf->Cell(10,7,'',0,1);
 
-$queryzakat = mysqli_query($connect, "SELECT * FROM zakat_fitrah WHERE id_zakatf= '$id_zakatf'");
+$queryzakat = mysqli_query($connect, "SELECT * FROM zakat WHERE id_zakatf= '$id_zakatf'");
 while ($zakat = mysqli_fetch_array($queryzakat)){
 
     $pdf->Image('kop.jpg',10,10,189);
