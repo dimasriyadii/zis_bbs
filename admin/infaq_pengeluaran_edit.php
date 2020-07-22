@@ -9,10 +9,12 @@ $keperluan	  	= $_POST["keperluan"];
 $jumlah 	    = $_POST["jumlah"];
 
 if ($edit = mysqli_query($connect, "UPDATE infaq_pengeluaran SET id_pengeluaran='$id_pengeluaran', 
-tanggal='$tanggal', keperluan='$keperluan', jumlah='$jumlah'  WHERE id_pengeluaran='$id_pengeluaran'")){
+tanggal='$tanggal', id_keperluan='$keperluan', jumlah='$jumlah'  WHERE id_pengeluaran='$id_pengeluaran'")){
 		header("location: infaq_pengeluaran.php");
 		exit();
 	}
 die ("Terdapat kesalahan : ". mysqli_error($connect));
 
 ?>
+
+
