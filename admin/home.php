@@ -184,6 +184,11 @@ include "../include/session.php";
         </section>
 
 <!-- Main content -->
+	<form action="" method="post">
+		<input type="date" name="tgl1">
+		<input type="date" name="tgl2">
+		<input type="submit" name="tampilkan" value="TAMPILKAN">
+	</form>
 <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -203,7 +208,7 @@ include "../include/session.php";
                                     <h3>$angka<sup style='font-size: 20px'>Kilogram</sup></h3>
                                     ";
                   ?>
-                <p>Zakat(Beras)</p>
+                <p>Zakat (Beras)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
