@@ -149,7 +149,7 @@ include "../include/session.php";
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-			<li class="treeview">
+			    <li class="treeview">
               <a href="#"><i class="fa fa-book"></i> <span>Infaq / Sedekah</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -162,6 +162,17 @@ include "../include/session.php";
             </li>
             <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
             <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-book"></i> <span>Laporan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+                <ul class="treeview-menu">
+                  <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
+                  <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
+                </ul>
+            </li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
 
           </ul>
@@ -184,20 +195,16 @@ include "../include/session.php";
         </section>
 
 <!-- Main content -->
-	<form action="" method="post">
-		<input type="date" name="tgl1">
-		<input type="date" name="tgl2">
-		<input type="submit" name="tampilkan" value="TAMPILKAN">
-	</form>
 <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-lg-3 col-6">
+          
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                  <?php
+              <?php
                         $queryberas = mysqli_query($connect,"SELECT SUM(beras) AS jumlah FROM zakat");
                         $databeras = mysqli_fetch_array($queryberas);
                         ?>
@@ -205,7 +212,7 @@ include "../include/session.php";
                                   $angka = $databeras['jumlah'];
                                   // $angka_format1 = number_format($angka,2,",",".");
                               echo "
-                                    <h3>$angka<sup style='font-size: 20px'>Kilogram</sup></h3>
+                                    <h3  style='font-size: 20px'>$angka<sup>Kilogram</sup></h3>
                                     ";
                   ?>
                 <p>Zakat (Beras)</p>
@@ -229,7 +236,7 @@ include "../include/session.php";
                               $angka = $data1['jumlah'];
                               $angka_format1 = number_format($angka,2,",",".");
                           echo "
-                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></sup></h3>
+                                <h3 style='font-size: 20px'>Rp. $angka_format1</h3>
                                 ";
                 ?>
                 <p>Zakat (Uang)</p>
