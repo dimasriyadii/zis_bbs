@@ -9,8 +9,8 @@
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
-						<th>Uang</th>
-						<th>Beras</th>
+						<th>Keperluan</th>
+						<th>Jumlah</th>
 						
 					</tr>
 
@@ -21,34 +21,33 @@
 					if(isset($_GET['tanggalawal']) AND isset($_GET['tanggalakhir'])){
 						$tglawal = $_GET['tanggalawal'];
 						$tglakhir = $_GET['tanggalakhir'];
-						$queryzakat = mysqli_query($connect,"SELECT id_zakatf, tanggal, nama, alamat, uang, beras FROM zakat WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
+						$querykeperluan = mysqli_query($connect,"SELECT id_pengeluaran, id_keperluan, tanggal, jumlah FROM infaq_pengeluaran  WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'
+						INNER JOIN keperluan ON id_keperluan = keperluan");
 					}else{
-						$queryzakat = mysqli_query($connect,"SELECT id_zakatf, tanggal, nama, alamat, uang, beras FROM zakat ");
+						$querykeperluan = mysqli_query($connect,"SELECT id_pengeluaran, id_keperluan, tanggal, jumlah FROM infaq_pengeluaran 
+						INNER JOIN keperluan ON id_keperluan = keperluan");
 					}
-					while ($zakat = mysqli_fetch_array ($queryzakat)){
+					while ($keperluan = mysqli_fetch_array ($querykeperluan)){
 						$no++;
 
-						$beras[] =$zakat['beras'];
-						$uang[] =$zakat['uang'];
+						$uang[] =$keperluan['jumlah'];
 
-						$angka = $zakat['uang'];
+						$angka = $keperluan['jumlah'];
 						$angka_format = number_format($angka,2,",",".");
 						echo "
 						<tr>
 							<td>$no</td>
-							<td>$zakat[tanggal]</td>
+							<td>$keperluan[tanggal]</td>
+							<td>$keperluan[id_keperluan]</td>
 							<td>Rp. $angka_format</td>
-							<td>$zakat[beras]</td>
 						</tr>";
 					}
-					$total_beras = array_sum($beras);
 					$total_uang = array_sum($uang);
 					$format = number_format($total_uang,2,",",".");
 					echo "
 					<tr>
-						<td colspan='2'>Jumlah</td>
-						<td>$format</td>
-						<td>Rp. $total_beras</td>
+						<td colspan='3'>Jumlah</td>
+						<td>Rp. $format</td>
 					</tr>";
 				?>
 				</tbody>

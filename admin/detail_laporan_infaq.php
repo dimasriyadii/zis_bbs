@@ -3,14 +3,14 @@
 			<form method="get">
 					<label>PILIH TANGGAL   </label>
 					<input type="date" name="tanggalawal">
+					<label>SAMPAI TANGGAL   </label>
 					<input type="date" name="tanggalakhir">
 					<a href="#"><button class="btn btn-warning" type="submit" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
-						<th>Uang</th>
-						<th>Beras</th>
+						<th>Jumlah</th>
 						
 					</tr>
 
@@ -21,34 +21,31 @@
 					if(isset($_GET['tanggalawal']) AND isset($_GET['tanggalakhir'])){
 						$tglawal = $_GET['tanggalawal'];
 						$tglakhir = $_GET['tanggalakhir'];
-						$queryzakat = mysqli_query($connect,"SELECT id_zakatf, tanggal, nama, alamat, uang, beras FROM zakat WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
+						$queryinfaq = mysqli_query($connect,"SELECT id_infaq, tanggal, nama, alamat, jumlah FROM infaq WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
 					}else{
-						$queryzakat = mysqli_query($connect,"SELECT id_zakatf, tanggal, nama, alamat, uang, beras FROM zakat ");
+						$queryinfaq = mysqli_query($connect,"SELECT id_infaq, tanggal, nama, alamat, jumlah FROM infaq ");
 					}
-					while ($zakat = mysqli_fetch_array ($queryzakat)){
+					while ($infaq = mysqli_fetch_array ($queryinfaq)){
 						$no++;
 
-						$beras[] =$zakat['beras'];
-						$uang[] =$zakat['uang'];
+						$uang[] =$infaq['jumlah'];
 
-						$angka = $zakat['uang'];
+						$angka = $infaq['jumlah'];
 						$angka_format = number_format($angka,2,",",".");
 						echo "
 						<tr>
 							<td>$no</td>
-							<td>$zakat[tanggal]</td>
+							<td>$infaq[tanggal]</td>
 							<td>Rp. $angka_format</td>
-							<td>$zakat[beras]</td>
+							<td>$infaq[beras]</td>
 						</tr>";
 					}
-					$total_beras = array_sum($beras);
 					$total_uang = array_sum($uang);
 					$format = number_format($total_uang,2,",",".");
 					echo "
 					<tr>
 						<td colspan='2'>Jumlah</td>
-						<td>$format</td>
-						<td>Rp. $total_beras</td>
+						<td>Rp. $format</td>
 					</tr>";
 				?>
 				</tbody>
