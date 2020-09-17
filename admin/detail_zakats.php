@@ -22,20 +22,23 @@
 				<tbody>
 					<?php
 
-					$no = 0;
+	$page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+      
+      // Jumlah data per halaman 5 perpage
+      $limit = 5;
+
+	  $limitStart = ($page - 1) * $limit;
+	  $no = $limitStart + 0;
 
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat where tanggal='$tgl'");
+						// $connect,"SELECT id_zakatf, tanggal, nama, alamat, uang, beras FROM zakat WHERE tanggal='$tgl'"
+
+						$sql = mysqli_query($connect, "SELECT * FROM zakat  WHERE tanggal='$tgl' LIMIT ".$limitStart.",".$limit );
 					}else{
-						$sql = mysqli_query($connect,"select id_zakatf, tanggal, nama, alamat, uang, beras from zakat");
-					}
-						// $queryzakat = mysqli_query ($connect, "SELECT id_zakatf, tanggal, nama, alamat, uang, beras 
-						// FROM zakat  where tanggal='$tanggal'");
+						$sql = mysqli_query($connect, "SELECT * FROM zakat LIMIT ".$limitStart.",".$limit);
+					} 
 						
-						// if($queryzakat == false){
-						// 	die ("Terjadi Kesalahan : ". mysqli_error($connect));
-						// }
 						while ($zakat = mysqli_fetch_array ($sql)){
 							$no++;
 						?>
