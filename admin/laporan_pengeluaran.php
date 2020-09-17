@@ -135,6 +135,18 @@ include "../include/session.php";
             </li>
             <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
             <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
+			<li class="treeview">
+              <a href="#"><i class="fa fa-book"></i> <span>Laporan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+                <ul class="treeview-menu">
+                  <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
+                  <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
+                  <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book active"></i><span>Pengeluaran</span></a></li>
+                </ul>
+            </li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
 
 

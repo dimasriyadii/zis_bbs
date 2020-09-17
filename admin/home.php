@@ -157,7 +157,7 @@ include "../include/session.php";
               </a>
                 <ul class="treeview-menu">
                   <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq / Sedekah</span></a></li>
-                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
+                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq / Sedekah</span></a></li>
                 </ul>
             </li>
             <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
@@ -170,8 +170,8 @@ include "../include/session.php";
               </a>
                 <ul class="treeview-menu">
                   <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
-                  <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
-                  <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book active"></i><span>Pengeluaran</span></a></li>
+                  <li> <a href="laporan_infaq.php"><i class="fa fa-book"></i><span>Infaq / Sedekah</span></a></li>
+                  <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran</span></a></li>
                 </ul>
             </li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
@@ -200,32 +200,10 @@ include "../include/session.php";
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-          
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <?php
-                        $queryberas = mysqli_query($connect,"SELECT SUM(beras) AS jumlah FROM zakat");
-                        $databeras = mysqli_fetch_array($queryberas);
-                        ?>
-                        <?php
-                                  $angka = $databeras['jumlah'];
-                                  // $angka_format1 = number_format($angka,2,",",".");
-                              echo "
-                                    <h3  style='font-size: 20px'>$angka<sup>Kilogram</sup></h3>
-                                    ";
-                  ?>
-                <p>Zakat (Beras)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
+
+
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -237,17 +215,181 @@ include "../include/session.php";
                               $angka = $data1['jumlah'];
                               $angka_format1 = number_format($angka,2,",",".");
                           echo "
-                                <h3 style='font-size: 20px'>Rp. $angka_format1</h3>
+                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></h3>
                                 ";
                 ?>
-                <p>Zakat (Uang)</p>
+                <p>Pemasukan Zakat (Uang)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <?php
+                        $queryberas = mysqli_query($connect,"SELECT SUM(beras) AS jumlah FROM zakat");
+                        $databeras = mysqli_fetch_array($queryberas);
+                        ?>
+                        <?php
+                                  $angka = $databeras['jumlah'];
+                                  // $angka_format1 = number_format($angka,2,",",".");
+                              echo "
+                                    <h3>$angka Kilogram<sup style='font-size: 20px'></h3>
+                                    ";
+                  ?>
+                 <p>Pemasukan Zakat (Beras)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+
+      
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                    $queryjumlah = mysqli_query($connect,"SELECT SUM(uang) AS uang FROM penerima");
+                    $data1 = mysqli_fetch_array($queryjumlah);
+                    ?>
+                    <?php
+                              $angka = $data1['uang'];
+                              $angka_format1 = number_format($angka,2,",",".");
+                          echo "
+                                <h3>Rp. $angka_format1<sup style='font-size: 20px'></h3>
+                                ";
+                ?>
+                <p>Zakat Keluar (Uang)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+
+                     <!-- ./col -->
+           <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                        $queryberas = mysqli_query($connect,"SELECT SUM(beras) AS beras FROM penerima");
+                        $databeras = mysqli_fetch_array($queryberas);
+                        ?>
+                        <?php
+                                  $angka = $databeras['beras'];
+                                  // $angka_format1 = number_format($angka,2,",",".");
+                              echo "
+                                    <h3>$angka Kilogram<sup style='font-size: 20px'></h3>
+                                    ";
+              ?>
+                <p>Zakat Keluar (Beras)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+
+          
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlzakat = mysqli_query($connect,"SELECT SUM(uang) AS uang FROM zakat");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(uang) AS pengeluaran FROM penerima");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryzakat = mysqli_fetch_array($sqlzakat);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldozakat = $queryzakat['uang'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
+                  $hasil_beras = $data2['beras'] - $data4['berasp'];
+                  ?>
+                  <?php
+                  $angka = $saldozakat;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>Rp. $angka_format</h3>";
+					      ?>
+
+                <p>Saldo Zakat (Uang)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlzakat = mysqli_query($connect,"SELECT SUM(beras) AS beras FROM zakat");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(beras) AS pengeluaran FROM penerima");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryzakat = mysqli_fetch_array($sqlzakat);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldozakat = $queryzakat['beras'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  ?>
+                  <?php
+                  $angka = $saldozakat;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>$angka_format Kilogram</h3>";
+					      ?>
+
+                <p>Saldo Zakat (Beras)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+
+
+
+
+          
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
@@ -271,7 +413,7 @@ include "../include/session.php";
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="infaq.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -293,12 +435,12 @@ include "../include/session.php";
                                 ";
                 ?>
 
-                <p>Data Pengeluaran Infaq</p>
+                <p>Data Pengeluaran Infaq / Sedekah</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="infaq.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -332,71 +474,17 @@ include "../include/session.php";
                         <h3>Rp. $angka_format</h3>";
 					      ?>
 
-                <p>Sisa Infaq</p>
+                <p>Saldo Infaq / Sedekah</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="infaq.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <?php
-                  $queryjumlah = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM sedekah");
-                  $data2 = mysqli_fetch_array($queryjumlah);
-
-                  //tungitung
-                  ?>
-                  <?php
-                        $angka = $data2['jumlah'];
-                        $angka_format2 = number_format($angka,2,",",".");
-                        echo "
-                        <h3>Rp. $angka_format2</h3>";
-                ?>
-
-                <p>Sedekah</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-              <?php
-                  $querypenerima = mysqli_query($connect,"SELECT COUNT(*) AS jumlah FROM penerima");
-                  $dd = mysqli_fetch_array($querypenerima);
-
-                  //tungitung
-                  ?>
-                  <?php
-                        $angka = $dd['jumlah'];
-                        echo "
-                        <h3>$angka</h3>";
-                ?>
-
-
-                <p>Penerima</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
-        <!-- /.row -->
-      </div>
+          
 </section>
         
 		
