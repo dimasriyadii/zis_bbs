@@ -18,7 +18,12 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 0;
+					$page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+					// Jumlah data per halaman 5 perpage
+					$limit = 5;
+					$limitStart = ($page - 1) * $limit;
+					$no = $limitStart + 0;
+					
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
 						$queryinfaq = mysqli_query($connect,"SELECT infaq_pengeluaran.id_pengeluaran,

@@ -47,8 +47,8 @@
 					echo "
 					<tr>
 						<td colspan='2'>Jumlah</td>
-						<td>$format</td>
-						<td>Rp. $total_beras</td>
+						<td>Rp. $format</td>
+						<td>$total_beras Kg</td>
 					</tr>";
 				?>
 				</tbody>

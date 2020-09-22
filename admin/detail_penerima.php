@@ -17,13 +17,17 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 0;
+					$page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+					// Jumlah data per halaman 5 perpage
+					$limit = 5;
+					$limitStart = ($page - 1) * $limit;
+					$no = $limitStart + 0;
 
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from penerima");
+						$sql = mysqli_query($connect,"select * from penerima");
 					}else{
-						$sql = mysqli_query($connect,"select id_penerima, nama, kelurahan, rt, uang, beras, status from penerima");
+						$sql = mysqli_query($connect,"select * from penerima");
 					}
 						
 						while ($penerima = mysqli_fetch_array ($sql)){

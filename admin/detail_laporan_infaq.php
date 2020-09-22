@@ -3,7 +3,6 @@
 			<form method="get">
 					<label>PILIH TANGGAL   </label>
 					<input type="date" name="tanggalawal">
-					<label>SAMPAI TANGGAL   </label>
 					<input type="date" name="tanggalakhir">
 					<a href="#"><button class="btn btn-warning" type="submit" data-toggle="modal"><i"></i> Filter</button></a>
 			</form>

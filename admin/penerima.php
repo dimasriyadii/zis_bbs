@@ -169,12 +169,73 @@ include "../include/session.php";
 				
 				
 
-                  <br></br>
+                  
+						
+				<br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
+						<?php include "detail_infaq.php"; ?>			   
+				  </table>
+									<div align="center">
+						<ul class="pagination">
 						<?php
-							include "detail_penerima.php";
+						// Jika page = 1, maka LinkPrev disable
+						if($page == 1){ 
+						?>        
+							<!-- link Previous Page disable --> 
+							<li class="disabled"><a href="#">Previous</a></li>
+						<?php
+						}
+						else{ 
+							$LinkPrev = ($page > 1)? $page - 1 : 1;
 						?>
-                  </table>
+							<!-- link Previous Page --> 
+							<li><a href="penerima.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
+						<?php
+							}
+						?>
+
+						<?php
+						$SqlQuery = mysqli_query($connect, "SELECT * FROM penerima");        
+						
+						//Hitung semua jumlah data yang berada pada tabel Sisawa
+						$JumlahData = mysqli_num_rows($SqlQuery);
+						
+						// Hitung jumlah halaman yang tersedia
+						$jumlahPage = ceil($JumlahData / $limit); 
+						
+						// Jumlah link number 
+						$jumlahNumber = 1; 
+
+						// Untuk awal link number
+						$startNumber = ($page > $jumlahNumber)? $page - $jumlahNumber : 1; 
+						
+						// Untuk akhir link number
+						$endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $jumlahPage; 
+						
+						for($i = $startNumber; $i <= $endNumber; $i++){
+							$linkActive = ($page == $i)? ' class="active"' : '';
+						?>
+							<li<?php echo $linkActive; ?>><a href="penerima.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+						<?php
+							}
+						?>
+						
+						<!-- link Next Page -->
+						<?php       
+						if($page == $jumlahPage){ 
+						?>
+							<li class="disabled"><a href="#">Next</a></li>
+						<?php
+						}
+						else{
+							$linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
+						?>
+							<li><a href="penerima.php?page=<?php echo $linkNext; ?>">Next</a></li>
+						<?php
+						}
+						?>
+						</ul>
+					</div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->

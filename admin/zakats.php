@@ -182,7 +182,7 @@ include "../include/session.php";
 				  <table id="data" class="table table-bordered table-striped table-scalable">
 						<?php include "detail_zakats.php"; ?>			   
 				  </table>
-									<div align="right">
+									<div align="center">
 						<ul class="pagination">
 						<?php
 						// Jika page = 1, maka LinkPrev disable
@@ -196,7 +196,7 @@ include "../include/session.php";
 							$LinkPrev = ($page > 1)? $page - 1 : 1;
 						?>
 							<!-- link Previous Page --> 
-							<li><a href="index.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
+							<li><a href="zakats.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
 						<?php
 							}
 						?>
@@ -237,7 +237,7 @@ include "../include/session.php";
 						else{
 							$linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
 						?>
-							<li><a href="index.php?page=<?php echo $linkNext; ?>">Next</a></li>
+							<li><a href="zakats.php?page=<?php echo $linkNext; ?>">Next</a></li>
 						<?php
 						}
 						?>

@@ -1,4 +1,4 @@
-  <?php
+<?php
 include "../include/connect.php";
 include "../include/session.php"; 
 ?>
@@ -6,31 +6,9 @@ include "../include/session.php";
 <html>
 <head>
 <title>Beranda | Babussalam</title>
-<!-- <meta charset="utf-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
   <!-- jQuery 2.1.4 -->
@@ -59,12 +37,11 @@ include "../include/session.php";
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/dist/css/AdminLTE.min.css">
 
-
 <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="../assets/dist/css/skins/_all-skins.min.css">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini ">
 <?php 
 	session_start();
  
@@ -74,9 +51,6 @@ include "../include/session.php";
 	}
  
 	?>
-<div class="wrapper">
-
-<body class="hold-transition skin-blue sidebar-mini ">
 <div class="wrapper">
 
 <header class="main-header">
@@ -127,9 +101,8 @@ include "../include/session.php";
       </div>
     </nav>
   </header>  
- 
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+    <!-- Left side column. contains the logo and sidebar -->
+	<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
@@ -147,22 +120,22 @@ include "../include/session.php";
           </div><!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
-            <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
+            <li><a href="home.php"><i class="fa fa-home active"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
-			    <li class="treeview">
+			<li class="treeview">
               <a href="#"><i class="fa fa-book"></i> <span>Infaq / Sedekah</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
                 <ul class="treeview-menu">
-                  <li> <a href="infaq.php"><i class="fa fa-book active"></i><span>Data Infaq / Sedekah</span></a></li>
-                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq / Sedekah</span></a></li>
+                  <li> <a href="infaq.php"><i class="fa fa-book"></i><span>Data Infaq / Sedekah</span></a></li>
+                  <li><a href="infaq_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran Infaq</span></a></li>
                 </ul>
             </li>
             <!-- <li><a href="sedekah.php"><i class="fa fa-users"></i><span>Sedekah</span></a></li> -->
             <li><a href="penerima.php"><i class="fa fa-area-chart"></i><span>Penerima Zakat</span></a></li>
-            <li class="treeview">
+			<li class="treeview">
               <a href="#"><i class="fa fa-book"></i> <span>Laporan</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -170,39 +143,167 @@ include "../include/session.php";
               </a>
                 <ul class="treeview-menu">
                   <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
-                  <li> <a href="laporan_infaq.php"><i class="fa fa-book"></i><span>Infaq / Sedekah</span></a></li>
-                  <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book"></i><span>Pengeluaran</span></a></li>
+                  <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
+                  <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book active"></i><span>Pengeluaran</span></a></li>
                 </ul>
             </li>
             <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+
 
           </ul>
         </section>
     <!-- /.sidebar -->
   </aside>
+ </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-        <h5>
-        Selamat Datang <?php echo $_SESSION['username']; ?> anda masuk sebagai <b> <?php echo $_SESSION['level']; ?> </b>
-        
-      </h5>
-      <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-      </ol> -->
-    </section>
+          <h1>
+            Dasboard
+          </h1>
           
         </section>
 
-<!-- Main content -->
-<section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+        
+                <!-- Taro kode disini -->
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlzakat = mysqli_query($connect,"SELECT SUM(uang) AS uang FROM zakat");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(uang) AS pengeluaran FROM penerima");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryzakat = mysqli_fetch_array($sqlzakat);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldozakat = $queryzakat['uang'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
+                  $hasil_beras = $data2['beras'] - $data4['berasp'];
+                  ?>
+                  <?php
+                  $angka = $saldozakat;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>Rp. $angka_format</h3>";
+					      ?>
+
+                <p>Saldo Zakat (Uang)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
 
 
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlzakat = mysqli_query($connect,"SELECT SUM(beras) AS beras FROM zakat");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(beras) AS pengeluaran FROM penerima");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryzakat = mysqli_fetch_array($sqlzakat);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldozakat = $queryzakat['beras'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  ?>
+                  <?php
+                  $angka = $saldozakat;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>$angka_format Kilogram</h3>";
+					      ?>
+
+                <p>Saldo Zakat (Beras)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php
+                  $sqlinfaq = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq");
+                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(jumlah) AS pengeluaran FROM infaq_pengeluaran");
+                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
+                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
+                  $queryinfaq = mysqli_fetch_array($sqlinfaq);
+                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
+                  // $data3 = mysqli_fetch_array($querypenerima);
+                  // $data4 = mysqli_fetch_array($queryberasp);
+
+                  $saldoinfaq = $queryinfaq['jumlah'] - $querypengeluaran['pengeluaran'];
+
+                  //tungitung
+                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
+                  $hasil_beras = $data2['beras'] - $data4['berasp'];
+                  ?>
+                  <?php
+                  $angka = $saldoinfaq;
+                  $angka_format = number_format($angka,2,",",".");
+                  
+                        echo "
+                        <h3>Rp. $angka_format</h3>";
+					      ?>
+
+                <p>Saldo Infaq / Sedekah</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="infaq.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
             <!-- ./col -->
+          
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+              
+              <!-- BOX KEDUA -->
+              <div class="box">
+                <div class="box-header">
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+        
+                <!-- Taro kode disini -->
+                <!-- ./col -->
             <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
@@ -305,90 +406,6 @@ include "../include/session.php";
               <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-
-
-          
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php
-                  $sqlzakat = mysqli_query($connect,"SELECT SUM(uang) AS uang FROM zakat");
-                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(uang) AS pengeluaran FROM penerima");
-                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
-                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
-                  $queryzakat = mysqli_fetch_array($sqlzakat);
-                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
-                  // $data3 = mysqli_fetch_array($querypenerima);
-                  // $data4 = mysqli_fetch_array($queryberasp);
-
-                  $saldozakat = $queryzakat['uang'] - $querypengeluaran['pengeluaran'];
-
-                  //tungitung
-                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
-                  $hasil_beras = $data2['beras'] - $data4['berasp'];
-                  ?>
-                  <?php
-                  $angka = $saldozakat;
-                  $angka_format = number_format($angka,2,",",".");
-                  
-                        echo "
-                        <h3>Rp. $angka_format</h3>";
-					      ?>
-
-                <p>Saldo Zakat (Uang)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-
-
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php
-                  $sqlzakat = mysqli_query($connect,"SELECT SUM(beras) AS beras FROM zakat");
-                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(beras) AS pengeluaran FROM penerima");
-                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
-                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
-                  $queryzakat = mysqli_fetch_array($sqlzakat);
-                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
-                  // $data3 = mysqli_fetch_array($querypenerima);
-                  // $data4 = mysqli_fetch_array($queryberasp);
-
-                  $saldozakat = $queryzakat['beras'] - $querypengeluaran['pengeluaran'];
-
-                  //tungitung
-                  ?>
-                  <?php
-                  $angka = $saldozakat;
-                  $angka_format = number_format($angka,2,",",".");
-                  
-                        echo "
-                        <h3>$angka_format Kilogram</h3>";
-					      ?>
-
-                <p>Saldo Zakat (Beras)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="zakats.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-
-
-
-
-
           
 
           <!-- ./col -->
@@ -444,113 +461,140 @@ include "../include/session.php";
             </div>
           </div>
           <!-- ./col -->
-
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php
-                  $sqlinfaq = mysqli_query($connect,"SELECT SUM(jumlah) AS jumlah FROM infaq");
-                  $sqlpengeluaran = mysqli_query($connect,"SELECT SUM(jumlah) AS pengeluaran FROM infaq_pengeluaran");
-                  // $querypenerima = mysqli_query($connect,"SELECT SUM(uang) AS uangp FROM tbl_penerima");
-                  // $queryberasp = mysqli_query($connect,"SELECT SUM(beras) AS berasp FROM tbl_penerima");
-                  $queryinfaq = mysqli_fetch_array($sqlinfaq);
-                  $querypengeluaran = mysqli_fetch_array($sqlpengeluaran);
-                  // $data3 = mysqli_fetch_array($querypenerima);
-                  // $data4 = mysqli_fetch_array($queryberasp);
-
-                  $saldoinfaq = $queryinfaq['jumlah'] - $querypengeluaran['pengeluaran'];
-
-                  //tungitung
-                  $hasil_uang = $data1['jumlah'] - $data3['uangp'];
-                  $hasil_beras = $data2['beras'] - $data4['berasp'];
-                  ?>
-                  <?php
-                  $angka = $saldoinfaq;
-                  $angka_format = number_format($angka,2,",",".");
-                  
-                        echo "
-                        <h3>Rp. $angka_format</h3>";
-					      ?>
-
-                <p>Saldo Infaq / Sedekah</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="infaq.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-
           
-</section>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+
+
         
 		
-<!-- Modal Popup sedekah -->
-<div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Bayar sedekah</h4>
-					</div>
-					<div class="modal-body">
-						<form action="sedekah_add.php" name="modal_popup" enctype="multipart/form-data" method="POST">
-							<!-- <div class="form-group">
-								<label>Tanggal</label>
-								
-										<input name="tanggal" type="text" class="form-control" placeholder="YYYY/MM/DD"/>
-								
-							</div> -->
 
-							<div class="form-group">
-								<label>Nama</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                   							 <i class="fa fa-user"></i>
-										</div>
-										<input name="nama" type="text" class="form-control" placeholder="Nama"/>
-									</div>
-							</div>
 
-             				 <div class="form-group">
-								<label>Alamat</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                   						 <i class="fa fa-user"></i>
-										</div>
-										<input name="alamat" type="text" class="form-control" placeholder="Alamat"/>
-									</div>
-							</div>
+		<!-- kode error cuy -->
 
-            				  <div class="form-group">
-								<label>Jumlah</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                    					<i class="fa fa-user"></i>
-										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp"/>
-									</div>
-							   </div>
-							
-									<div class="modal-footer">
-								<button class="btn btn-success" type="submit">
-									Add
-								</button>
-								<button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
-									Cancel
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- <script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " Kamu harus isi form uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " Kamu harus isi form beras. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			
+			else
+			{
+			return true;
+			}
+			}
+		</script> -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			var beras = document.getElementById( "beras" )
+			if( uang.value == "" && beras.value == "" )
+			{
+			error = " Adayang terlewat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			// if (beras.value == "" || uang.value == "") { 
+			// 	error = "Ada yang terlewat";
+			// 	document.getElementById("error_para").innerHTML = error;
+			// 	return false;
+			//  }
+
+			else
+			{
+			return true;
+			}
+			}
+		</script>
+
+		<!-- <script type="text/javascript">
+ 
+			function validate() {
+				var nama = document.getElementById("nama").value;
+				var alamat = document.getElementById("alamat").value;
+				var uang = document.getElementById("uang").value;
+				var beras = document.getElementById("beras").value;
+				if(nama=="" && alamat=="" && uang=="" && beras==""){
+					alert('silahkan isi!Nama:..'+'\n'+'silahkan isi!Kota:..'+'\n'+'silahkan isi!alamat:..'+'\n'+'silahkan isi!Pesan:..');
+				}
+				else if(nama==""){
+					alert('nama Harus diisi');
+				}
+				else if (alamat == "") {
+					alert("alamat");
 		
-		<!-- Modal Popup sedekah Edit -->
-		<div id="ModalEditSedekah" class="modal fade" tabindex="-1" role="dialog"></div>
+				}
+				else if (uang == "") {
+					alert("uang");
+		
+				}
+				else if (beras == "") {
+					alert("beras");
+		
+				}
+		
+				else{
+				alert('Data berhasil ditambahkan');
+					}
+		
+			}
+		</script> -->
+
+		
+		<!-- Modal Popup zakat Edit -->
+		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -583,14 +627,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_sedekah");
+			var m = $(this).attr("id_zakatf");
 				$.ajax({
-					url: "sedekah_modal_edit.php",
+					url: "zakats_modal_edit.php",
 					type: "GET",
-					data : {id_sedekah: m,},
+					data : {id_zakatf: m,},
 					success: function (ajaxData){
-					$("#ModalEditSedekah").html(ajaxData);
-					$("#ModalEditSedekah").modal('show',{backdrop: 'true'});
+					$("#ModalEditZakat").html(ajaxData);
+					$("#ModalEditZakat").modal('show',{backdrop: 'true'});
 					}
 				});
 			});
@@ -607,4 +651,3 @@ include "../include/session.php";
 			document.getElementById('delete_link').setAttribute('href', delete_url);
 		}
 	</script>
- 

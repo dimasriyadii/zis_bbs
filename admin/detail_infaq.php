@@ -18,13 +18,21 @@
 					</tr>
 				</thead>
 				<tbody>
+
+
+			
 					<?php
-					$no = 0;
+						$page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+						// Jumlah data per halaman 5 perpage
+						$limit = 5;
+						$limitStart = ($page - 1) * $limit;
+						$no = $limitStart + 0;
+
 					if(isset($_GET['tanggal'])){
 						$tgl = $_GET['tanggal'];
-						$queryinfaq = mysqli_query($connect,"select id_infaq, tanggal, nama, alamat, jumlah FROM infaq where tanggal='$tgl'");
+						$queryinfaq = mysqli_query($connect, "SELECT * FROM infaq  WHERE tanggal='$tgl' LIMIT ".$limitStart.",".$limit );
 					}else{
-						$queryinfaq = mysqli_query($connect,"select id_infaq, tanggal, nama, alamat, jumlah FROM infaq");
+						$queryinfaq = mysqli_query($connect, "SELECT * FROM infaq LIMIT ".$limitStart.",".$limit);
 					}
 
 						//$queryinfaq = mysqli_query ($connect, "SELECT id_infaq, tanggal, nama, alamat, jumlah FROM infaq");
