@@ -28,9 +28,11 @@
 					if(isset($_GET['tanggalawal']) AND isset($_GET['tanggalakhir'])){
 						$tglawal = $_GET['tanggalawal'];
 						$tglakhir = $_GET['tanggalakhir'];
-						$querypenerima = mysqli_query($connect,"SELECT id_penerima, tanggal, rt, uang, beras FROM penerima WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
+ 
+
+						$querypenerima = mysqli_query($connect,"SELECT * FROM penerima WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
 					}else{
-						$querypenerima = mysqli_query($connect,"SELECT id_penerima, tanggal, rt, uang, beras FROM penerima");
+						$querypenerima = mysqli_query($connect,"SELECT * FROM penerima");
 					}
 					while ($penerima = mysqli_fetch_array ($querypenerima)){
 						
