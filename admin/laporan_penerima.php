@@ -5,7 +5,7 @@ include "../include/session.php";
 <!DOCTYPE html>
 <html>
 <head>
-<title>Infaq | Babussalam</title>
+<title>Laporan | Babussalam</title>
 <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
@@ -100,10 +100,9 @@ include "../include/session.php";
         </ul>
       </div>
     </nav>
-  </header>
- 
-   <!-- Left side column. contains the logo and sidebar -->
-   <aside class="main-sidebar">
+  </header>  
+    <!-- Left side column. contains the logo and sidebar -->
+	<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
@@ -119,7 +118,7 @@ include "../include/session.php";
               <p></p>
             </div>
           </div><!-- sidebar menu: : style can be found in sidebar.less -->
-		  <ul class="sidebar-menu">
+          <ul class="sidebar-menu">
             <li class="header"><h4><b><center>Menu Utama</center></b></h4></li>
             <li><a href="home.php"><i class="fa fa-home"></i><span>Beranda</span></a></li>
             <li><a href="zakats.php"><i class="fa fa-user"></i><span>Zakat</span></a></li>
@@ -149,19 +148,20 @@ include "../include/session.php";
                   <li> <a href="laporan_penerima.php"><i class="fa fa-book active"></i><span>Penerima</span></a></li>
                 </ul>
             </li>
-            <!-- <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li> -->
-
+            <!-- <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+ -->
 
           </ul>
         </section>
     <!-- /.sidebar -->
   </aside>
+ </div>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Pengeluaran Infaq
+            Data Laporan Penerima Zakat
           </h1>
           
         </section>
@@ -175,183 +175,99 @@ include "../include/session.php";
 
                 </div><!-- /.box-header -->
                 <div class="box-body">
-				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a>
-                  <br></br>
+				<!-- <a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a> -->
+			
 				  <table id="data" class="table table-bordered table-striped table-scalable">
-				  <br></br>
-				  <table id="data" class="table table-bordered table-striped table-scalable">
-						<?php include "detail_infaq_pengeluaran.php"; ?>			   
-				  </table>
-									<div align="center">
-						<ul class="pagination">
 						<?php
-						// Jika page = 1, maka LinkPrev disable
-						if($page == 1){ 
-						?>        
-							<!-- link Previous Page disable --> 
-							<li class="disabled"><a href="#">Previous</a></li>
-						<?php
-						}
-						else{ 
-							$LinkPrev = ($page > 1)? $page - 1 : 1;
+							include "detail_laporan_penerima.php";
 						?>
-							<!-- link Previous Page --> 
-							<li><a href="infaq_pengeluaran.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
-						<?php
-							}
-						?>
-
-						<?php
-						$SqlQuery = mysqli_query($connect, "SELECT * FROM infaq_pengeluaran");        
-						
-						//Hitung semua jumlah data yang berada pada tabel Sisawa
-						$JumlahData = mysqli_num_rows($SqlQuery);
-						
-						// Hitung jumlah halaman yang tersedia
-						$jumlahPage = ceil($JumlahData / $limit); 
-						
-						// Jumlah link number 
-						$jumlahNumber = 1; 
-
-						// Untuk awal link number
-						$startNumber = ($page > $jumlahNumber)? $page - $jumlahNumber : 1; 
-						
-						// Untuk akhir link number
-						$endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $jumlahPage; 
-						
-						for($i = $startNumber; $i <= $endNumber; $i++){
-							$linkActive = ($page == $i)? ' class="active"' : '';
-						?>
-							<li<?php echo $linkActive; ?>><a href="infaq_pengeluaran.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-						<?php
-							}
-						?>
-						
-						<!-- link Next Page -->
-						<?php       
-						if($page == $jumlahPage){ 
-						?>
-							<li class="disabled"><a href="#">Next</a></li>
-						<?php
-						}
-						else{
-							$linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
-						?>
-							<li><a href="infaq_pengeluaran.php?page=<?php echo $linkNext; ?>">Next</a></li>
-						<?php
-						}
-						?>
-						</ul>
-					</div>
+                  </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
 		
-<!-- Modal Popup infaq -->
-<div id="ModalAdd" class="modal fade" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Pengeluaran</h4>
-					</div>
-					<div class="modal-body">
-						<form action="infaq_pengeluaran_add.php" name="validasi_form" enctype="multipart/form-data"  onsubmit="return validate()"  method="POST">
-							<!-- <div class="form-group">
-								<label>Tanggal</label>
-								
-										<input name="tanggal" type="text" class="form-control" placeholder="YYYY/MM/DD"/>
-								
-							</div> -->
 
-							<!-- <div class="form-group">
-								<label>Keperluan</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-user"></i>
-										</div>
-										<select name="keperluan" class="form-control">
-										<?php
-											$querykeperluan = "SELECT * FROM keperluan";
-											$query = mysqli_query ($connect, $querykeperluan);
-											while ( $keperluan = mysqli_fetch_array($query )) {
-												?>
-												<option value="<?=$keperluan['id_keperluan']?>"><?=$keperluan['id_keperluan']?></option>
-												<?php
-											}
-										?>
-										</select>
-									</div>
-									</div> -->
+		<!-- kode error cuy -->
 
-									<div class="form-group">
-								<label>Keperluan</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-user"></i>
-										</div>
-										<select name="keperluan" class="form-control">
-										<option value='1'>Khatib</option>
-										<option value='2'>Kajian Rabu</option>
-										<option value='3'>Kajian Minggu</option>
-                  						<option value='4'>Kebersihan</option>
-										<option value='5'>Air</option>
-										<option value='6'>Listrik</option>
-										<option value='7'>Lainnya</option>
-										</select>
-									</div>
-									</div>
-
-            				  <div class="form-group">
-								<label>Jumlah</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-                    					<i class="fa fa-user"></i>
-										</div>
-										<input name="jumlah" type="text" class="form-control" placeholder="Jumlah Rp" id="jumlah"/>
-									</div>
-							   </div>
-							
-									<div class="modal-footer">
-								<button class="btn btn-success" type="submit">
-									Add
-								</button>
-								<button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
-									Cancel
-								</button>
-							</div>
-						</form>
-						
-						<p id="error_para" ></p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-				<!-- kode error cuy -->
-
-				<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function validate()
 			{
 			var error="";
-			var keperluan = document.getElementById( "keperluan" );
-			if( keperluan.value == "" )
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
 			{
-			error = " Kamu harus isi form keperluan. ";
+			error = " Kamu harus isi form nama. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			if( uang.value == "" )
+			{
+			error = " Kamu harus isi form uang. ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var beras = document.getElementById( "beras" );
+			if( beras.value == "" )
+			{
+			error = " Kamu harus isi form beras. ";
 			document.getElementById( "error_para" ).innerHTML = error;
 			return false;
 			}
 			
-			var jumlah = document.getElementById( "jumlah" );
-			if( jumlah.value == "" )
+			else
 			{
-			error = " Kamu harus isi form jumlah. ";
+			return true;
+			}
+			}
+		</script> -->
+
+		<script type="text/javascript">
+			function validate()
+			{
+			var error="";
+			var nama = document.getElementById( "nama" );
+			if( nama.value == "" )
+			{
+			error = " Kamu harus isi form nama. ";
 			document.getElementById( "error_para" ).innerHTML = error;
 			return false;
 			}
+
+			var alamat = document.getElementById( "alamat" );
+			if( alamat.value == "" )
+			{
+			error = " Kamu harus isi form alamat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+
+			var uang = document.getElementById( "uang" );
+			var beras = document.getElementById( "beras" )
+			if( uang.value == "" && beras.value == "" )
+			{
+			error = " Adayang terlewat ";
+			document.getElementById( "error_para" ).innerHTML = error;
+			return false;
+			}
+			// if (beras.value == "" || uang.value == "") { 
+			// 	error = "Ada yang terlewat";
+			// 	document.getElementById("error_para").innerHTML = error;
+			// 	return false;
+			//  }
+
 			else
 			{
 			return true;
@@ -359,9 +275,41 @@ include "../include/session.php";
 			}
 		</script>
 
+		<!-- <script type="text/javascript">
+ 
+			function validate() {
+				var nama = document.getElementById("nama").value;
+				var alamat = document.getElementById("alamat").value;
+				var uang = document.getElementById("uang").value;
+				var beras = document.getElementById("beras").value;
+				if(nama=="" && alamat=="" && uang=="" && beras==""){
+					alert('silahkan isi!Nama:..'+'\n'+'silahkan isi!Kota:..'+'\n'+'silahkan isi!alamat:..'+'\n'+'silahkan isi!Pesan:..');
+				}
+				else if(nama==""){
+					alert('nama Harus diisi');
+				}
+				else if (alamat == "") {
+					alert("alamat");
 		
-		<!-- Modal Popup infaq Edit -->
-		<div id="ModalEditInfaq" class="modal fade" tabindex="-1" role="dialog"></div>
+				}
+				else if (uang == "") {
+					alert("uang");
+		
+				}
+				else if (beras == "") {
+					alert("beras");
+		
+				}
+		
+				else{
+				alert('Data berhasil ditambahkan');
+					}
+		
+			}
+		</script> -->
+
+		<!-- Modal Popup zakat Edit -->
+		<div id="ModalEditZakat" class="modal fade" tabindex="-1" role="dialog"></div>
 		
 		<!-- Modal Popup untuk delete--> 
 		<div class="modal fade" id="modal_delete">
@@ -380,7 +328,6 @@ include "../include/session.php";
 		</div>
 	</div><!-- /.content-wrapper -->
 
-
 		<footer class="main-footer">
     		<div class="pull-right hidden-xs"></div>
     		<strong><center><?php include "../include/footer.php";?></center></strong>
@@ -394,14 +341,14 @@ include "../include/session.php";
 		
 		// Users
 		$(".open_modal").click(function(e) {
-			var m = $(this).attr("id_pengeluaran");
+			var m = $(this).attr("id_zakatf");
 				$.ajax({
-					url: "infaq_pengeluaran_modal_edit.php",
+					url: "zakats_modal_edit.php",
 					type: "GET",
-					data : {id_pengeluaran: m,},
+					data : {id_zakatf: m,},
 					success: function (ajaxData){
-					$("#ModalEditInfaq").html(ajaxData);
-					$("#ModalEditInfaq").modal('show',{backdrop: 'true'});
+					$("#ModalEditZakat").html(ajaxData);
+					$("#ModalEditZakat").modal('show',{backdrop: 'true'});
 					}
 				});
 			});

@@ -145,10 +145,11 @@ include "../include/session.php";
                   <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
                   <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
                   <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book active"></i><span>Pengeluaran</span></a></li>
+                  <li> <a href="laporan_penerima.php"><i class="fa fa-book active"></i><span>Penerima</span></a></li>
                 </ul>
             </li>
-            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
-
+            <!-- <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+ -->
 
           </ul>
         </section>
@@ -160,7 +161,7 @@ include "../include/session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Data Laporan Pengeluaran
+            Data Laporan Pengeluaran Infaq/Sedekah
           </h1>
           
         </section>

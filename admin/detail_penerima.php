@@ -8,6 +8,7 @@
 					<tr>
 						<th>No</th>
 						<th>Nama</th>
+						<th>Tanggal/th>
 						<th>Kelurahan</th>
 						<th>RT</th>
 						<th>Uang</th>
@@ -44,6 +45,7 @@
 								<tr>
 									<td>$no</td>
 									<td>$penerima[nama]</td>
+									<td>$penerima[tanggal]</td>
 									<td>$penerima[kelurahan]</td>
 									<td>$penerima[rt]</td>
 									<td>Rp. $angka_format</td>

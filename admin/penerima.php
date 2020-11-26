@@ -136,9 +136,10 @@ include "../include/session.php";
                   <li><a href="laporan_zakat.php"><i class="fa fa-book"></i><span>Zakat</span></a></li>
                   <li> <a href="laporan_infaq.php"><i class="fa fa-book active"></i><span>Infaq / Sedekah</span></a></li>
                   <li> <a href="laporan_pengeluaran.php"><i class="fa fa-book active"></i><span>Pengeluaran</span></a></li>
+                  <li> <a href="laporan_penerima.php"><i class="fa fa-book active"></i><span>Penerima</span></a></li>
                 </ul>
             </li>
-            <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li>
+            <!-- <li><a href="users.php"><i class="fa fa-user"></i><span>User</span></a></li> -->
 
 
           </ul>
@@ -173,7 +174,7 @@ include "../include/session.php";
 						
 				<br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
-						<?php include "detail_infaq.php"; ?>			   
+						<?php include "detail_penerima.php"; ?>			   
 				  </table>
 									<div align="center">
 						<ul class="pagination">

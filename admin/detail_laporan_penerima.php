@@ -9,9 +9,9 @@
 					<tr>
 						<th>No</th>
 						<th>Tanggal</th>
-						<th>Keperluan</th>
+						<th>Beras</th>
+						<th>Uang</th>
 						
-						<th>Jumlah</th>
 						
 					</tr>
 
@@ -28,38 +28,41 @@
 					if(isset($_GET['tanggalawal']) AND isset($_GET['tanggalakhir'])){
 						$tglawal = $_GET['tanggalawal'];
 						$tglakhir = $_GET['tanggalakhir'];
-						$querykeperluan = mysqli_query($connect,"SELECT infaq_pengeluaran.id_pengeluaran, infaq_pengeluaran.id_keperluan, infaq_pengeluaran.tanggal, 
-						infaq_pengeluaran.jumlah, keperluan.keperluan FROM infaq_pengeluaran 
-						INNER JOIN keperluan ON infaq_pengeluaran.id_keperluan=keperluan.id_keperluan
-						WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
+						$querypenerima = mysqli_query($connect,"SELECT id_penerima, tanggal, rt, uang, beras FROM penerima WHERE tanggal BETWEEN '$tgl_awal' AND '$tglakhir'");
 					}else{
-						$querykeperluan = mysqli_query($connect,"SELECT infaq_pengeluaran.id_pengeluaran, infaq_pengeluaran.id_keperluan, infaq_pengeluaran.tanggal, 
-						infaq_pengeluaran.jumlah, keperluan.keperluan FROM infaq_pengeluaran INNER JOIN keperluan ON infaq_pengeluaran.id_keperluan=keperluan.id_keperluan");
+						$querypenerima = mysqli_query($connect,"SELECT id_penerima, tanggal, rt, uang, beras FROM penerima");
 					}
-					while ($keperluan = mysqli_fetch_array ($querykeperluan)){
+					while ($penerima = mysqli_fetch_array ($querypenerima)){
 						
 						$no++;
 
-						$uang[] =$keperluan['jumlah'];
+						$uang[] =$penerima['uang'];
+						$beras[] =$penerima['beras'];
 
-						$angka = $keperluan['jumlah'];
+						$angkab = $penerima['beras'];
+						$angkab_format = number_format($angkab,2,",",".");
+						$angka = $penerima['uang'];
 						$angka_format = number_format($angka,2,",",".");
 						echo "
 						<tr>
 							<td>$no</td>
-							<td>$keperluan[tanggal]</td>
-							<td>$keperluan[keperluan]</td>
-							
+							<td>$penerima[tanggal]</td>
+							<td>$penerima[beras] Kg</td>
 							<td>Rp. $angka_format</td>
+							
 							
 						</tr>";
 					}
 					$total_uang = array_sum($uang);
 					$format = number_format($total_uang,2,",",".");
+
+					$total_beras = array_sum($beras);
+					$formatb = number_format($total_uang,2,",",".");
 					
 					echo "
 					<tr>
-						<td colspan='3'>Jumlah</td>
+						<td colspan='2'>jumlah</td>
+						<td> $formatb Kg</td>
 						<td>Rp. $format</td>
 					</tr>";
 				?>
