@@ -176,12 +176,74 @@ include "../include/session.php";
                 </div><!-- /.box-header -->
                 <div class="box-body">
 				<!-- <a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Add</button></a> -->
-			
-				  <table id="data" class="table table-bordered table-striped table-scalable">
-						<?php
-							include "detail_laporan_infaq.php";
-						?>
-                  </table>
+				<form method="POST" action="" class="form-inline mt-3">
+					<label for="tglawal">Tanggal mulai </label>
+					<input type="date" name="tglawal" id="tglawal" class="form-control mr-2">
+					<label for="tglakhir">sampai </label>
+					<input type="date" name="tglakhir" id="tglakhir" class="form-control mr-2">
+					<button type="submit" name="submit" class="btn btn-primary">Cari</button>
+				</form>
+
+			<?php
+				if (isset($_POST['submit'])) {
+					$date1 = $_POST['tglawal'];
+					$date2 = $_POST['tglakhir'];
+				   
+					if (!empty($date1) && !empty($date2)) {
+					 // perintah tampil data berdasarkan range tanggal
+					 $q = mysqli_query($connect, "SELECT * FROM infaq WHERE tanggal BETWEEN '$date1' and '$date2'"); 
+					} else {
+					 // perintah tampil semua data
+					 $q = mysqli_query($connect, "SELECT * FROM infaq"); 
+					}
+				   } else {
+					// perintah tampil semua data
+					$q = mysqli_query($connect, "SELECT * FROM infaq");
+				   }
+				   
+				   
+			?>
+				<table class="table table-bordered mt-5">
+					<tr>
+					<th>#</th>
+					<th>Tanggal</th>
+					<th>Jumlah</th>
+					</tr>
+
+					<?php
+					
+					$no = 1;
+
+					while ($r = $q->fetch_assoc()) {
+					?>
+						
+						
+				<?php
+					$uang[] =$r['jumlah'];
+
+					$angka = $r['jumlah'];
+					$angka_format = number_format($angka,2,",",".");
+				?>
+					<tr>
+						<td><?= $no++ ?></td>
+						<td><?= date('d-M-Y', strtotime($r['tanggal'])) ?></td>
+						<td>Rp. <?= $angka_format ?></td>
+					</tr>
+
+					<?php   
+					}
+					?>
+				<?php
+					$total_uang = array_sum($uang);
+					$format = number_format($total_uang,2,",",".");
+				?>
+					<tr>
+						<td colspan='2'>jumlah</td>
+						<td>Rp. <?= $format ?></td>
+					</tr>
+
+
+					</table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
